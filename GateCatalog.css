@@ -1,0 +1,65 @@
+#gateHeading:hover{
+  /* font-size: 1.01rem; */
+  color: #ded298;
+}
+.gateCatalog {
+    width: 24vw;
+    height: 57vh;
+    padding: 20px;
+    background-color: #2c3e50;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gateButton:hover {
+    background-color: #2980b9;
+    color: black;
+} 
+.gateTable {
+    width: 17%;
+    border-collapse: collapse;
+    height: 10vh;
+  }
+ 
+  .gateTable th {
+    height: 1cm; /* Set the height of the heading row */
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  /* .gateTable th,  */
+  .gateTable td {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: center;
+    background-color: #454a79;
+    color: white;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .gateButton {
+    width: 100%;
+    margin: auto;
+    background-color: #122e41;
+    color: white;
+    /* border: 1px solid black; */
+    cursor: pointer;
+    border-radius: 11px ;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    height: 1cm;
+    width: 1cm;
+  }
+  
+  .gateButton:hover {
+    background-color: #2980b9;
+  }
+  
+
+ 
+  
