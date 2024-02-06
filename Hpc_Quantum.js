@@ -1,18 +1,5 @@
-
-// // Function to create a new image element
-// function createImageElement(altText) {
-//   const newImage = document.createElement("img");
-//   newImage.src = altText; // Assuming the alt text contains the image source
-//   newImage.alt = altText;
-
-//   // Set the width and height of the new image to 1cm x 1cm
-//   newImage.style.width = '1cm';
-//   newImage.style.height = '1cm';
-
-//   return newImage;
-// }
-
-// **********************************************
+  //  **Random image drop in the table 2  cell drag and drop event occurs
+// // **********************************************
 // function allowDrop(event) {
 //   event.preventDefault();
 // }
@@ -53,15 +40,11 @@
 //   table2Cell.appendChild(newImage);
 // }
 // *********************************************
-// Third attempt
 // Function to allow dropping elements
-
 
 function allowDrop(event) {
   event.preventDefault();
 }
-
-// Function to handle the drag event
 function drag(event) {
   // Store the dragged element's ID from table 1
   event.dataTransfer.setData("text/plain", event.target.alt);
@@ -78,8 +61,13 @@ function dropLogo(event) {
   const nextEmptyCell = Array.from(table2Row.children)
     .find(cell => cell.childElementCount === 0);
 
-  // Drop the image in the first available empty cell in the second column
+  // If there is an empty cell in the second column, drop the image
   if (nextEmptyCell) {
+    // Check if the cell already contains an image, remove it
+    if (nextEmptyCell.children.length > 0) {
+      nextEmptyCell.removeChild(nextEmptyCell.children[0]);
+    }
+
     const newImage = createImageElement(draggedImageAlt);
     nextEmptyCell.appendChild(newImage);
   }
