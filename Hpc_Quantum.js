@@ -49,13 +49,14 @@ function drag(event) {
   // Store the dragged element's ID from table 1
   event.dataTransfer.setData("text/plain", event.target.alt);
 }
+const cell =document.querySelectorAll('.circuitBox drop-area');
 
 // Function to handle the drop event
-function dropLogo(event) {
-  event.preventDefault();
+function dropLogo(e) {
+  e.preventDefault();
 
-  const table2Row = event.target.parentElement;
-  const draggedImageAlt = event.dataTransfer.getData("text/plain");
+  const table2Row = e.target.parentElement;
+  const draggedImageAlt = e.dataTransfer.getData("text/plain");
 
   // Find the first available empty cell in the second column
   const nextEmptyCell = Array.from(table2Row.children)
@@ -67,9 +68,9 @@ function dropLogo(event) {
     if (nextEmptyCell.children.length > 0) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
-
-    const newImage = createImageElement(draggedImageAlt);
-    nextEmptyCell.appendChild(newImage);
+    const newImage2 = createImageElement(draggedImageAlt);
+    nextEmptyCell.appendChild(newImage2);
+   
   }
 }
 
@@ -85,3 +86,4 @@ function createImageElement(altText) {
 
   return newImage;
 }
+
