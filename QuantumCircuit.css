@@ -10,6 +10,9 @@
     width: 100%;
     border-collapse: collapse;
   }
+  .circuitTable th{
+    background-color: #3498db;
+  }
   .circuitTable tr{
     border: 1px solid white;
   }
@@ -18,7 +21,7 @@
     /* border: 1px solid #ddd; */
     padding: 10px;
     text-align: center;
-    background-color: #3498db;
+    /* background-color: #3498db; */
     color: white;
     height: 1.2cm; /* Set cell height */
     width: 1.2cm; /* Set cell width */

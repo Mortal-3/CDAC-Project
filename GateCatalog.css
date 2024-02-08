@@ -10,15 +10,28 @@
     display: flex;
     flex-wrap: wrap;
 }
+.gateButton {
+  width: 100%;
+  margin: auto;
+  background-color: #ecf0f1; /* Lighter background color */
+  color:#85a9bd; /* Darker text color */
+  cursor: pointer;
+  border-radius: 11px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  height: 1cm;
+  width: 1cm;
+}
 
 .gateButton:hover {
-    background-color: #2980b9;
-    color: black;
-} 
+  background-color: #75abcf; /* Darker background color on hover */
+}
+
 .gateTable {
     width: 17%;
     border-collapse: collapse;
     height: 10vh;
+    border-radius: 3px;
   }
  
   .gateTable th {
@@ -35,8 +48,9 @@
     border: 1px solid #ddd;
     padding: 7px;
     text-align: center;
-    background-color: #454a79;
-    color: white;
+   
+    background-color: #9a9db5;
+    /* color: white; */
     justify-content: center;
     align-items: center;
    
@@ -45,7 +59,7 @@
   .gateButton {
     width: 100%;
     margin: auto;
-    background-color: #122e41;
+    background-color: #5c7586;
     color: white;
     /* border: 1px solid black; */
     cursor: pointer;
