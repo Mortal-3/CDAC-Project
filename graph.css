@@ -1,0 +1,31 @@
+.container {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+
+.graph {
+    display: flex;
+    justify-content: center;
+}
+
+.bar {
+    width: 50px;
+    background-color: #3498db;
+    margin: 0 10px;
+    position: relative;
+}
+
+.bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: inherit;
+}

@@ -8,11 +8,16 @@
 .left-part {
     float: left;
     width: 50%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin: 5px;
     border-radius: 23px;
     height: 100%;
     width: 60%;
+    background-color: #496587;
+}
+.left-part .heading{
+    background-color: #394e66;
+    height: 8%;
 }
 
 /* Inside 2nd container */
@@ -21,9 +26,17 @@
     width: 38%;
     box-sizing: border-box;
     border-radius: 17px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 100%;
     margin: 5px;
+    background-color: rgb(235 243 160);
+}
+
+#graphHeading{
+    background-color: rgb(175, 181, 130);
+}
+.graph{
+    height: 83%;
 }
 
 .flexbody {

@@ -83,6 +83,7 @@ function createImageElement(altText) {
   // Set the width and height of the new image to 1cm x 1cm
   newImage.style.width = '1cm';
   newImage.style.height = '1cm';
+  newImage.style.background = '#ded298';
 
   return newImage;
 }

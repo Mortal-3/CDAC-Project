@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="QuantumCircuit.css">
     <link rel="stylesheet" href="QuantumResult.css">
     <link rel="stylesheet" href="ContainerManagement.css">
-    <link rel="stylesheet" href="prograssBar.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="graph.css">
     <script src="Hpc_Quantum.js" defer></script>
     <!-- <script src="circuit.js" defer></script> -->
   </head>
@@ -97,7 +97,7 @@
          <div class="circuitDesign scroll-x scroll-y" id="circuitDesign">
            <table class="circuitTable mytable1" id="table2"  ondrop="dropLogo(event)" ondragover="allowDrop(event)">
    
-             <tr>
+             <tr id="circuitHeading">
                 <!-- Heading for Base State and Gates 1-20 -->
                <th>Base State</th>
                <!-- Columns 1 to 20 -->
@@ -515,8 +515,8 @@
          </div>   
          <!-- Circuit Design Code container -Display code comming soon -->
          <div class="code">
-           <p><pre>Contain Code .
-             Feature Update soon.
+           <p class="center"><pre><h3 >    Contain Code .
+        Feature Update soon.</h3>
            </pre></p>
          </div>
        </div>
@@ -524,19 +524,14 @@
      <div class="box"></div> 
      <div class="container2">
       
-       <div class="result left-part"><div class="heading center"><h3>Result</h3></div> </div>
+       <div class="result left-part"><div class="heading center" ><h3 >Result</h3></div> </div>
        <div class="extra right-part center">
-         <div class="progress-bar-container">
-           <div class="progress-bar" data-target="0">
-             <span class="progress-text"></span>
-           </div>
-           <div class="progress-bar" data-target="1">
-             <span class="progress-text"></span>
-           </div>
-         </div>
-         <div class="outcomes">
-           <span>0</span>
-           <span>1</span>
+        <h2 id="graphHeading">Graph Area</h2>
+     
+          <div class="graph">
+            <img src="./img/bargraph.png" alt="Bar Graph">
+      
+        </div>
          </div>
        </div>
      </div>
