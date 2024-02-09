@@ -1,9 +1,27 @@
 .result h3 {
     font-weight: bold; /* Make the text bold */
     text-decoration: underline; /* Add underline */
-    color: antiquewhite;
+    color: rgb(51, 49, 45);
+    background-color: #ded298;
 }
 
-.extra{
-    
+.matrix{
+    width: 73%;
+    height: 99%;
+    position: relative;
+    /* border: 2px solid red; */
+    /* margin: auto; */
+    /* padding-top: 128px; */
+    margin-left: 144px;
+    margin-top: 24px;
+}
+.matrixOperation{
+    width: 49%;
+    height: 99%;
+    /* padding-top: 56px; */
+    padding-top: 129px;
+    margin-right: 46px;
+}
+.matrixOperation h4{
+    color: black;
 }

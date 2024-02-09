@@ -13,7 +13,7 @@
     border-radius: 23px;
     height: 100%;
     width: 60%;
-    background-color: #496587;
+    background-color: #fffae2;;
 }
 .left-part .heading{
     background-color: #394e66;
@@ -72,4 +72,10 @@
 
 .mytable1 {
     display: inline;
+}
+.subResult{
+    height: 100%;
+}
+.flex{
+    display: flex;
 }

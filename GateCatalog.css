@@ -70,12 +70,13 @@
     width: 1cm;
   }
   .gateTable td img {
-    background-color: #2980b9; /* Set background color for images */
+    /* Set background color for images */
+    background-color:rgb(235 243 160);
 }
   
 .gateTable td img:hover {
+  background-color: #2980b9; 
     
-    background-color:rgb(235 243 160);
   }
   
 
