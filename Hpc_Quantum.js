@@ -1,34 +1,95 @@
 // Function to allow dropping elements
 
+// function allowDrop(event) {
+//   event.preventDefault();
+// }
+// function drag(event) {
+//   // Store the dragged element's ID from table 1
+//   event.dataTransfer.setData("text/plain", event.target.alt);
+// }
+// const cell = document.querySelectorAll(".circuitBox drop-area");
+
+// // Function to handle the drop event
+// function dropLogo(e) {
+//   e.preventDefault();
+
+//   const table2Row = e.target.parentElement;
+//   const draggedImageAlt = e.dataTransfer.getData("text/plain");
+
+//   // Find the first available empty cell in the second column
+//   const nextEmptyCell = Array.from(table2Row.children).find(
+//     (cell) => cell.childElementCount === 0
+//   );
+
+//   // If there is an empty cell in the second column, drop the image
+//   if (nextEmptyCell) {
+//     // Check if the cell already contains an image, remove it
+//     if (nextEmptyCell.children.length > 0) {
+//       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
+//     }
+//     const newImage2 = createImageElement(draggedImageAlt);
+//     nextEmptyCell.appendChild(newImage2);
+//   }
+// }
+
+// // Function to create a new image element
+// function createImageElement(altText) {
+//   const newImage = document.createElement("img");
+//   newImage.src = altText; // Assuming the alt text contains the image source
+//   newImage.alt = altText;
+
+//   // Set the width and height of the new image to 1cm x 1cm
+//   newImage.style.width = "1cm";
+//   newImage.style.height = "1cm";
+//   newImage.style.background = "#ded298";
+
+//   return newImage;
+// }
+
+
+
+// ************************final code ******************
+
+
+
+
+
+
+
 function allowDrop(event) {
   event.preventDefault();
 }
+
 function drag(event) {
   // Store the dragged element's ID from table 1
   event.dataTransfer.setData("text/plain", event.target.alt);
 }
-const cell = document.querySelectorAll(".circuitBox drop-area");
+
+// Select all elements with class 'drop-area' inside elements with class 'circuitBox'
+const table2Cells = document.querySelectorAll('.circuitBox .drop-area');
 
 // Function to handle the drop event
 function dropLogo(e) {
   e.preventDefault();
 
-  const table2Row = e.target.parentElement;
+  const targetCell = e.currentTarget;
   const draggedImageAlt = e.dataTransfer.getData("text/plain");
 
-  // Find the first available empty cell in the second column
-  const nextEmptyCell = Array.from(table2Row.children).find(
-    (cell) => cell.childElementCount === 0
-  );
+  // Find the adjacent row element
+  const adjacentRow = targetCell.closest('tr');
 
-  // If there is an empty cell in the second column, drop the image
+  // Find the first available empty cell in the adjacent row
+  const nextEmptyCell = Array.from(adjacentRow.children)
+    .find(cell => cell.childElementCount === 0);
+
+  // If there is an empty cell in the adjacent row, drop the image
   if (nextEmptyCell) {
     // Check if the cell already contains an image, remove it
     if (nextEmptyCell.children.length > 0) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
-    const newImage2 = createImageElement(draggedImageAlt);
-    nextEmptyCell.appendChild(newImage2);
+    const newImage = createImageElement(draggedImageAlt);
+    nextEmptyCell.appendChild(newImage);
   }
 }
 
@@ -39,9 +100,10 @@ function createImageElement(altText) {
   newImage.alt = altText;
 
   // Set the width and height of the new image to 1cm x 1cm
-  newImage.style.width = "1cm";
-  newImage.style.height = "1cm";
-  newImage.style.background = "#ded298";
+  newImage.style.width = '1cm';
+  newImage.style.height = '1cm';
+  newImage.style.background = '#ded298';
 
   return newImage;
 }
+
