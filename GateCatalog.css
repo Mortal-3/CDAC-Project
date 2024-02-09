@@ -28,16 +28,18 @@
 }
 
 .gateTable {
-    width: 17%;
-    border-collapse: collapse;
-    height: 10vh;
-    border-radius: 3px;
+  width: 17%;
+  border-collapse: collapse;
+  height: calc(6 * 1cm + 7 * 14px); /* Height of 6 visible rows + padding */
+  border-radius: 3px;
+  overflow-y: auto; /* Enable vertical scrolling */
   }
+ 
  
   .gateTable th {
     height: 1cm; /* Set the height of the heading row */
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 4px;
     text-align: center;
     background-color: #3498db;
     color: white;
@@ -46,7 +48,7 @@
   /* .gateTable th,  */
   .gateTable td {
     border: 1px solid #ddd;
-    padding: 7px;
+    padding: 4px;
     text-align: center;
    
     background-color: #9a9db5;

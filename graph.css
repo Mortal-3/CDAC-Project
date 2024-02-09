@@ -11,7 +11,7 @@ h2 {
 .graph {
     display: flex;
     justify-content: center;
-    background-color: rgb(235 243 160);
+    background-color: #fffae2;
 }
 
 .bar {

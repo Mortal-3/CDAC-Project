@@ -29,11 +29,13 @@
     /* border: 2px solid black; */
     height: 100%;
     margin: 5px;
-    background-color: rgb(235 243 160);
+    background-color: #fffae2;
 }
 
 #graphHeading{
     background-color: rgb(175, 181, 130);
+    color: #272626;
+    font-weight: 650;
 }
 .graph{
     height: 83%;
