@@ -1,4 +1,4 @@
-// Function to allow dropping elements
+// // Function to allow dropping elements
 
 // function allowDrop(event) {
 //   event.preventDefault();
@@ -13,11 +13,12 @@
 // function dropLogo(e) {
 //   e.preventDefault();
 
-//   const table2Row = e.target.parentElement;
+//   const table2Row = e.target.currentTarget;
 //   const draggedImageAlt = e.dataTransfer.getData("text/plain");
+//   const adjacentRow = table2Row.closet("tr");
 
 //   // Find the first available empty cell in the second column
-//   const nextEmptyCell = Array.from(table2Row.children).find(
+//   const nextEmptyCell = Array.from(adjacentRow.children).find(
 //     (cell) => cell.childElementCount === 0
 //   );
 
@@ -46,16 +47,6 @@
 //   return newImage;
 // }
 
-
-
-// ************************final code ******************
-
-
-
-
-
-
-
 function allowDrop(event) {
   event.preventDefault();
 }
@@ -66,7 +57,7 @@ function drag(event) {
 }
 
 // Select all elements with class 'drop-area' inside elements with class 'circuitBox'
-const table2Cells = document.querySelectorAll('.circuitBox .drop-area');
+const table2Cells = document.querySelectorAll(".circuitBox .drop-area");
 
 // Function to handle the drop event
 function dropLogo(e) {
@@ -76,11 +67,12 @@ function dropLogo(e) {
   const draggedImageAlt = e.dataTransfer.getData("text/plain");
 
   // Find the adjacent row element
-  const adjacentRow = targetCell.closest('tr');
+  const adjacentRow = targetCell.closest("tr");
 
   // Find the first available empty cell in the adjacent row
-  const nextEmptyCell = Array.from(adjacentRow.children)
-    .find(cell => cell.childElementCount === 0);
+  const nextEmptyCell = Array.from(adjacentRow.children).find(
+    (cell) => cell.childElementCount === 0
+  );
 
   // If there is an empty cell in the adjacent row, drop the image
   if (nextEmptyCell) {
@@ -100,10 +92,9 @@ function createImageElement(altText) {
   newImage.alt = altText;
 
   // Set the width and height of the new image to 1cm x 1cm
-  newImage.style.width = '1cm';
-  newImage.style.height = '1cm';
-  newImage.style.background = '#ded298';
+  newImage.style.width = "1cm";
+  newImage.style.height = "1cm";
+  newImage.style.background = "#ded298";
 
   return newImage;
 }
-
