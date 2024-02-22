@@ -1,14 +1,16 @@
 import React from "react";
-import Footer from "../StyleComponent/Footer";
+import "./../StyleComponent/Footer.css";
 
-function Footer() {
+function Foo() {
   return (
-    <footer>
-      <div className="foot center">
-        Copyright &#169; CDAC-Patna || All right reserved ||
-      </div>
-    </footer>
+    <>
+      <footer>
+        <div className="foot center">
+          Copyright &#169; CDAC-Patna || All right reserved ||
+        </div>
+      </footer>
+    </>
   );
 }
 
-export default Footer;
+export default Foo;

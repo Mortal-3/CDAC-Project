@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "../StyleComponent/Navigation.css";
+import "./../StyleComponent/Navigation.css";
 function NavigationBar() {
   //NAvigationBar is the component
   return (
