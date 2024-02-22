@@ -1,0 +1,67 @@
+/* circuit.css */
+#gateHeading {
+  font-size: 1.5rem;
+  text-shadow: 3px;
+}
+
+#circuitHeading {
+  height: 10px;
+}
+
+.circuitDesign {
+  width: 100%;
+  padding: 1px;
+  overflow: auto;
+  /* Add overflow for scrolling if needed */
+}
+
+.circuitTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.circuitTable th {
+  background-color: #3498db;
+
+}
+
+.circuitTable tr {
+  border: 1px solid white;
+}
+
+.circuitTable th,
+.circuitTable td {
+  /* border: 1px solid #ddd; */
+  padding: 10px;
+  text-align: center;
+  /* background-color: #3498db; */
+  color: white;
+  height: 1.2cm;
+  /* Set cell height */
+  width: 1.2cm;
+  /* Set cell width */
+}
+
+
+.circuitTable th {
+  width: 20%;
+}
+
+.gateSelection {
+  width: 100%;
+  padding: 8px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .circuitDesign {
+    width: 100%;
+  }
+}
+
+.gateTable tr:not(:first-child) {
+  background-color: wheat;
+  /* Wheatish color */
+  border: 1px solid grey;
+  /* Grey border */
+}

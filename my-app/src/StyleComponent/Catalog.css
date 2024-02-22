@@ -1,0 +1,86 @@
+#gateHeading:hover{
+  /* font-size: 1.01rem; */
+  color: #ded298;
+}
+.gateCatalog {
+    width: 24vw;
+    height: 57vh;
+    padding: 20px;
+    background-color: #2c3e50;
+    display: flex;
+    flex-wrap: wrap;
+}
+.gateButton {
+  width: 100%;
+  margin: auto;
+  background-color: #ecf0f1; /* Lighter background color */
+  color:#85a9bd; /* Darker text color */
+  cursor: pointer;
+  border-radius: 11px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  height: 1cm;
+  width: 1cm;
+}
+
+.gateButton:hover {
+  background-color: #75abcf; /* Darker background color on hover */
+}
+
+.gateTable {
+  width: 17%;
+  border-collapse: collapse;
+  height: calc(6 * 1cm + 7 * 14px); /* Height of 6 visible rows + padding */
+  border-radius: 3px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  }
+ 
+ 
+  .gateTable th {
+    height: 1cm; /* Set the height of the heading row */
+    border: 1px solid #ddd;
+    padding: 4px;
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  /* .gateTable th,  */
+  .gateTable td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    text-align: center;
+   
+    background-color: #9a9db5;
+    /* color: white; */
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .gateButton {
+    width: 100%;
+    margin: auto;
+    background-color: #5c7586;
+    color: white;
+    /* border: 1px solid black; */
+    cursor: pointer;
+    border-radius: 11px ;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    height: 1cm;
+    width: 1cm;
+  }
+  .gateTable td img {
+    /* Set background color for images */
+    background-color:rgb(235 243 160);
+}
+  
+.gateTable td img:hover {
+  background-color: #2980b9; 
+    
+  }
+  
+
+ 
+  
