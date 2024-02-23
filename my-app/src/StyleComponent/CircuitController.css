@@ -1,0 +1,21 @@
+.Controller {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+}
+
+.CircuitDesign {
+    position: relative;
+}
+
+.CircuitDesign table {
+    border-collapse: collapse;
+}
+
+.CircuitDesign td,
+.CircuitDesign th {
+    border: 1px solid #ccc;
+    padding: 8px;
+}

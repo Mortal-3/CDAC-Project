@@ -1,21 +1,20 @@
 import React from "react";
-
+import "./../StyleComponent/About.css";
 function About() {
   return (
     <div className="about">
       <h1>About</h1>
-      <p>This is a simple app created with the following technologies: </p>
+      <p>
+        This is a HPC-Simulator app created with the following technologies:{" "}
+      </p>
       <ul>
-        <li>React - A JavaScript library for building user interfaces.</li>
-        <li>
-          Node.js - An open-source, cross-platform runtime environment that
-          executes JavaScript code outside a web browser.
-        </li>
-        <li>
-          Node.js - An open-source, cross-platform runtime environment that
-          executes JavaScript code outside a web browser. Node.js allows
-          developers to run server-side JavaScript
-        </li>
+        <li>Html5- </li>
+        <li>CSS3</li>
+        <li>ReactJS- A JavaScript library for building user interfaces.</li>
+        <li>Jsx</li>
+
+        <li>FLask Framework</li>
+        <li>Python</li>
       </ul>
     </div>
   );
