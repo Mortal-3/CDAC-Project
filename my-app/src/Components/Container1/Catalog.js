@@ -1,6 +1,6 @@
 import React from "react";
-import "./../StyleComponent/Catalog.css";
-import "./../StyleComponent/utility.css";
+import "../../StyleComponent/Catalog.css";
+import "../../StyleComponent/utility.css";
 import "./../StyleComponent/ContainerManagement.css";
 function Catalog() {
   const allowDrop = (event) => {
