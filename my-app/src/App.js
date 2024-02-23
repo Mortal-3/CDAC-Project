@@ -19,8 +19,6 @@ function App() {
       <Contact />
       <About />
       <Footer />
-
-      {/* <div className="App">This is app Component {name}</div> */}
     </>
   );
 }
