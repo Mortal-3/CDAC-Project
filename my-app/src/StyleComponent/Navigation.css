@@ -27,6 +27,7 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1001;
+    margin-bottom: 1px;
 }
 
 nav ul {

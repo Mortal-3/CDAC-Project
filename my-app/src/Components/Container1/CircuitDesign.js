@@ -1,7 +1,7 @@
 import React from "react";
-import "./../StyleComponent/CircuitDesign.css";
-import "./../StyleComponent/utility.css";
-import "./../StyleComponent/ContainerManagement.css";
+// import "./../StyleComponent/CircuitDesign.css";
+// import "./../StyleComponent/utility.css";
+// import "./../StyleComponent/ContainerManagement.css";
 function CircuitDesign() {
   const allowDrop = (event) => {
     event.preventDefault();
