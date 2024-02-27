@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "./../StyleComponent/contact.css";
 function Contact() {
+  const [cust, setCust] = useState([]);
+  const handleSubmit = function (e) {
+    e.preventDefault();
+    var data = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      message: e.target.message.value,
+    };
+    setCust([...cust, data]);
+    console.log("data", data);
+    cust.map((item) =>
+      console.log(
+        "Name = ",
+        item.name,
+        "\nEmail = ",
+        item.email,
+        "\n Phone number = ",
+        item.phone,
+        "\n Message = ",
+        item.message
+      )
+    );
+  };
   return (
     <div className="contact">
       <section id="contact">
         <h1 className="h-primary center">Contact Us</h1>
         <div id="contact-box">
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name : </label>
               <input
