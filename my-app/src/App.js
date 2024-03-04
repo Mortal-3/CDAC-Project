@@ -9,9 +9,9 @@ function App() {
     <>
       <NavigationBar />
       <Simulator />
-      <About />
+      {/* <About />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

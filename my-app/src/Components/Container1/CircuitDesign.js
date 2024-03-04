@@ -1,4 +1,5 @@
 import React from "react";
+import "./../../StyleComponent/utility.css";
 function CircuitDesign() {
   const allowDrop = (event) => {
     event.preventDefault();
@@ -52,14 +53,11 @@ function CircuitDesign() {
   };
   return (
     // <div className="circuitDesign">
-    <div className="circuit-right">
+    <>
       {/* <!-- Table for the quantum circuit design --> */}
-      <div
-        className="circuitDesign scroll-x scroll-y table table-success table-striped"
-        id="circuitDesign"
-      >
+      <div className="circuitDesign scroll-x scroll-y " id="circuitDesign">
         <table
-          className="circuitTable mytable1"
+          className="circuitTable mytable1 table table-success table-striped"
           id="table2"
           onDrop={dropLogo}
           onDragOver={allowDrop}
@@ -1417,8 +1415,7 @@ function CircuitDesign() {
           </tbody>
         </table>
       </div>
-    </div>
-    // </div>
+    </>
   );
 }
 
