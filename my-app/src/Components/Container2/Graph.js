@@ -7,8 +7,7 @@ function Graph() {
         <h2 id="graphHeading">BlochSphere</h2>
 
         <div className="graph">
-          <img src="./img/BlochF.png" alt="Bar Graph" />
-          <img src="./../img/"></img>
+          <img src=".\Image\BlochF.png" alt="BlochSphere" srcSet="" />
         </div>
       </div>
     </div>

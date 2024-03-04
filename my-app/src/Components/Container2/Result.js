@@ -9,11 +9,7 @@ function Result() {
         </div>
 
         <div className="matrix center">
-          <img
-            src="D:\Hpc_Quantum_FrontEnd_Simulator\my-app\public\Image\BarGraph.png"
-            alt="Result GRaph"
-            srcSet=""
-          />
+          <img src=".\Image\BarGraph.png" alt="Bar Graph" />
         </div>
       </div>
     </>
