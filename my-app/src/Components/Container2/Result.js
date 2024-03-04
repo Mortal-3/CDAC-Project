@@ -1,7 +1,23 @@
 import React from "react";
 
 function Result() {
-  return <div className="result">{/* Result section */}</div>;
+  return (
+    <>
+      <div className="result left-part ">
+        <div className="heading center">
+          <h3>Result</h3>
+        </div>
+
+        <div className="matrix center">
+          <img
+            src="D:\Hpc_Quantum_FrontEnd_Simulator\my-app\public\Image\BarGraph.png"
+            alt="Result GRaph"
+            srcSet=""
+          />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Result;
