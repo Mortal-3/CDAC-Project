@@ -19,3 +19,13 @@
     border: 1px solid #ccc;
     padding: 8px;
 }
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    width: -webkit-fill-available;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 3px 0 3px 0;
+    margin-bottom: 3vh;
+}

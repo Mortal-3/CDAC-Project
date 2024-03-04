@@ -3,6 +3,11 @@
     justify-content: center;
 }
 
+.shadow-border {
+    box-shadow: 0 4px 8px rgba(230, 228, 228, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* Adjust values as needed */
+}
 
 /* Inside 2nd container */
 .left-part {
@@ -13,9 +18,11 @@
     border-radius: 23px;
     height: 100%;
     width: 60%;
-    background-color: #fffae2;;
+    background-color: #fffae2;
+    ;
 }
-.left-part .heading{
+
+.left-part .heading {
     background-color: #394e66;
     height: 8%;
 }
@@ -32,12 +39,13 @@
     background-color: #fffae2;
 }
 
-#graphHeading{
+#graphHeading {
     background-color: rgb(175, 181, 130);
     color: #272626;
     font-weight: 650;
 }
-.graph{
+
+.graph {
     height: 83%;
 }
 
@@ -75,9 +83,11 @@
 .mytable1 {
     display: inline;
 }
-.subResult{
+
+.subResult {
     height: 100%;
 }
-.flex{
+
+.flex {
     display: flex;
 }

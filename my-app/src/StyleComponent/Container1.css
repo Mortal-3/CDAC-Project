@@ -1,7 +1,7 @@
 .container1 {
     display: flex;
     height: 384px;
-    margin-top: 7vh;
+    margin-top: 1vh;
     width: 100%;
     box-shadow: 0 0 10px rgba(15, 14, 14, 0.2);
     /* flex: 1 0 50%; */

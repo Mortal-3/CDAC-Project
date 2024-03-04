@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import "../../StyleComponent/Catalog.css";
 // import "../../StyleComponent/utility.css";
 // import "./../StyleComponent/ContainerManagement.css";
@@ -53,6 +53,14 @@ function Catalog() {
 
     return newImage;
   };
+  const [gate, setGate] = useState([]);
+  const handleDrag = (e) => {
+    const imgData = e.target.alt;
+    setGate([...gate, imgData]);
+  };
+  console.log(gate);
+
+  console.log("Selected gate", gate);
   return (
     <div className="catalog-left flexbody">
       <table className="gateTable fit logoTable" id="table1">
@@ -71,6 +79,7 @@ function Catalog() {
                   src=".\Image\Pauli-X.png"
                   style={{ height: "1cm", width: "1cm" }}
                   alt="Pauli-X"
+                  onDragOver={handleDrag}
                 />
               </div>
             </td>

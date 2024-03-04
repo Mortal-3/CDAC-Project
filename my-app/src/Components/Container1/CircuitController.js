@@ -6,7 +6,11 @@ function CircuitController() {
   return (
     <div className="Controller">
       <div className="btn-group" role="group" aria-label="Basic example">
-        <button type="button" className="btn btn-secondary">
+        <button
+          type="button"
+          className="btn btn-secondary shadow-border"
+          style={{ marginTop: "4vh" }}
+        >
           Add
         </button>
         <button type="button" className="btn btn-secondary">
