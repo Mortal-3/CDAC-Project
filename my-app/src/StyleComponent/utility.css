@@ -76,7 +76,7 @@
     overflow-y: auto;
     /* Enable vertical scroll when content overflows */
     scrollbar-color: #333 #666;
-    /* Customize track and thumb colors */
+    height: 39vh;
 
 }
 

@@ -22,7 +22,7 @@ function Simulator() {
           <div className="col-2">
             <Catalog />
           </div>
-          <div className="col-5 ">
+          <div className="col-6 ">
             <CircuitDesign />
           </div>
           <div className="col-1">

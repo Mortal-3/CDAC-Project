@@ -3,7 +3,7 @@ import React from "react";
 function DispCode() {
   return (
     <div className="DispCode">
-      <div className="code">
+      <div className="code" style={{ height: "39vh" }}>
         <pre style={{ fontSize: "small", color: "yellow" }}>
           {`   switch (matrixType) {
             case "ket0":
