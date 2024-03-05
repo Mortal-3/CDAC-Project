@@ -1,9 +1,9 @@
 import React from "react";
-import "./../../StyleComponent/Container2/graph.css";
+import "./../../StyleComponent/Container2/Result.css";
 function Result() {
   return (
     <>
-      <div className="result left-part ">
+      <div className="result left-part">
         <div className="heading center">
           <h3>Result</h3>
         </div>

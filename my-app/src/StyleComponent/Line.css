@@ -1,0 +1,15 @@
+.box {
+    border: 1px solid rgb(156, 155, 155);
+    height: 0.01px;
+    background: rgb(163, 163, 163);
+    width: 91vw;
+    margin: 30px auto 12px auto;
+}
+
+.box2 {
+    border: 1px solid rgb(255, 251, 251);
+    height: 0.01px;
+    background: rgb(220, 219, 219);
+    width: 98vw;
+    margin: 30px 9px 12px 0px;
+}
