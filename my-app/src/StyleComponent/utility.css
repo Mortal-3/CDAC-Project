@@ -5,15 +5,13 @@
 
 .shadow-border {
     box-shadow: 0 4px 8px rgba(230, 228, 228, 0.1);
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    /* Adjust values as needed */
+
 }
 
 /* Inside 2nd container */
 .left-part {
     float: left;
     width: 50%;
-    /* border: 2px solid black; */
     margin: 5px;
     border-radius: 23px;
     height: 100%;
@@ -33,7 +31,6 @@
     width: 38%;
     box-sizing: border-box;
     border-radius: 17px;
-    /* border: 2px solid black; */
     height: 100%;
     margin: 5px;
     background-color: #fffae2;

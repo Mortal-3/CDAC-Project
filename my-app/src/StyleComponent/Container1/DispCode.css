@@ -1,0 +1,14 @@
+.DispCode {
+    /* height: 39vh; */
+    height: 100%;
+    width: auto;
+    border: 1px solid black;
+    padding: 7px;
+    margin-left: 5px;
+    box-shadow: 0 0 10px rgba(61, 61, 61, 0.1);
+}
+
+pre {
+    font-size: small;
+    color: yellow;
+}

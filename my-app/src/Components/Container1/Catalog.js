@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "./../../StyleComponent/Catalog.css";
-import "./../../StyleComponent/utility.css";
-// import "./../StyleComponent/ContainerManagement.css";
+import "./../../StyleComponent/Container1/Catalog.css";
 function Catalog() {
   const allowDrop = (event) => {
     event.preventDefault();
@@ -47,10 +45,11 @@ function Catalog() {
     newImage.alt = altText;
 
     // Set the width and height of the new image to 1cm x 1cm
-    newImage.style.width = "1cm";
-    newImage.style.height = "1cm";
+    newImage.style.width = "0.8cm";
+    newImage.style.height = "0.8cm";
+    newImage.style.margin = "0";
+    newImage.style.padding = "0";
     newImage.style.background = "#ded298";
-
     return newImage;
   };
   const [gate, setGate] = useState([]);

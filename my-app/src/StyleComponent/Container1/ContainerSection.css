@@ -1,0 +1,23 @@
+.mainContainer {
+    margin-top: 2vh;
+    width: 99%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cointainer1 {
+    display: flex;
+    width: 99%;
+    box-shadow: 0 0 10px rgba(15, 14, 14, 0.2);
+    overflow: hidden;
+    margin-bottom: 2vh;
+    min-height: 39vh;
+}
+
+.container2 {
+    height: 47vh;
+    border: 2px;
+    border-radius: 5px solid rgb(245, 245, 245);
+}

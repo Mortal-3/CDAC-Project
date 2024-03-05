@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./../../StyleComponent/Container2/graph.css";
 function Graph() {
   return (
     <div className="graph">

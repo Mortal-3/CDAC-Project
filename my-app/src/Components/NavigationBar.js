@@ -17,7 +17,7 @@ function NavigationBar() {
           <div className="right">
             <ul>
               <li>
-                <a href="#home">Home</a>
+                <a href="#simulator">Home</a>
               </li>
               <li>
                 <a href="#simulator">Simulator</a>

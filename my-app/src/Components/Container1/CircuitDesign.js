@@ -1,4 +1,5 @@
 import React from "react";
+import "./../../StyleComponent/Container1/CircuitDesign.css";
 import "./../../StyleComponent/utility.css";
 function CircuitDesign() {
   const allowDrop = (event) => {
