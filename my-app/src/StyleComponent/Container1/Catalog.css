@@ -71,6 +71,8 @@
 
 .gateTable td img {
     background-color: rgb(235 243 160);
+    height: 1cm;
+    width: 1cm;
 }
 
 .gateTable td img:hover {

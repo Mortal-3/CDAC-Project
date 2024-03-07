@@ -9,13 +9,12 @@ function App() {
   return (
     <>
       <NavigationBar />
-      <div className="box2" />
+
       <Simulator />
       <div className="box" />
       <About />
       <div className="box" />
       <Contact />
-      <div className="box" />
       <Footer />
     </>
   );

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./../../StyleComponent/Container1/Catalog.css";
 function Catalog() {
+  const [img, setImg] = useState("");
   const allowDrop = (event) => {
     event.preventDefault();
   };
+
+  ///////// On Drop Event ////////////
 
   const drag = (event) => {
     // Store the dragged element's ID from table 1
@@ -76,7 +79,6 @@ function Catalog() {
               <div className="gateButton circuitBox" draggable="true">
                 <img
                   src=".\Image\Pauli-X.png"
-                  style={{ height: "1cm", width: "1cm" }}
                   alt="Pauli-X"
                   onDragOver={handleDrag}
                 />
@@ -84,141 +86,79 @@ function Catalog() {
             </td>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Pauli-Y.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Pauli-Y"
-                />
+                <img src=".\Image/Pauli-Y.png" alt="Pauli-Y" />
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Pauli-Z.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Pauli-Z"
-                  srcSet=""
-                />{" "}
+                <img src=".\Image/Pauli-Z.png" alt="Pauli-Z" srcSet="" />{" "}
               </div>
             </td>
             <td>
               <div className="gateButton" draggable="true">
-                <img
-                  src="..\Image/Hadamard.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Hadamard"
-                  srcSet=""
-                />
+                <img src="..\Image/Hadamard.png" alt="Hadamard" srcSet="" />
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/S.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="T"
-                  srcSet=""
-                />
+                <img src=".\Image/S.png" alt="T" srcSet="" />
               </div>
             </td>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/T.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="S"
-                  srcSet=""
-                />
+                <img src=".\Image/T.png" alt="S" srcSet="" />
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Rx.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="T"
-                  srcSet=""
-                />
+                <img src=".\Image/Rx.png" alt="T" srcSet="" />
               </div>
             </td>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Ry.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="S"
-                  srcSet=""
-                />
+                <img src=".\Image/Ry.png" alt="S" srcSet="" />
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/CNOT.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Cnot"
-                  srcSet=""
-                />
+                <img src=".\Image/CNOT.png" alt="Cnot" srcSet="" />
               </div>
             </td>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/CZ.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="CZ"
-                  srcSet=""
-                />
+                <img src=".\Image/CZ.png" alt="CZ" srcSet="" />
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Swap.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="SWAP"
-                  srcSet=""
-                />
+                <img src=".\Image/Swap.png" alt="SWAP" srcSet="" />
               </div>
             </td>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Toffoli.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Toffoli"
-                  srcSet=""
-                />
+                <img src=".\Image/Toffoli.png" alt="Toffoli" srcSet="" />
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Measurement.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Measurement"
-                />
+                <img src=".\Image/Measurement.png" alt="Measurement" />
               </div>
             </td>
             <td>
               <div className="gateButton circuitBox" draggable="true">
-                <img
-                  src=".\Image/Reset.png"
-                  style={{ height: "1cm", width: "1cm" }}
-                  alt="Reset"
-                />
+                <img src=".\Image/Reset.png" alt="Reset" />
               </div>
             </td>
           </tr>
