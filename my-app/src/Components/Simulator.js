@@ -8,12 +8,14 @@ import Result from "./Container2/Result";
 
 // Css File Imported
 import "./../StyleComponent/ContainerSection.css";
+import "./../StyleComponent/utility.css";
 function Simulator() {
   return (
     <>
-      <div className="mainContainer">
+      <div div className="mainContainer">
         <div className="container1" id="simulator">
           {/* <!-- Container 1 --> */}
+          {/* It contain mostly user intraction componenets like Gate Catalog ,Circuit Design Area,Circuit Controller Button etc */}
           <div className="row">
             <div className="col-2">
               <Catalog />
@@ -28,18 +30,19 @@ function Simulator() {
               <DispCode />
             </div>
           </div>
-          {/*  <!-- End of Container 1 --> */}
-          {/*  <!-- Container 2 --> */}
-          <div className="container2 row">
-            <div className="col-8">
-              <Result />
-            </div>
-            <div className="col-4">
-              <Graph />
-            </div>
+        </div>
+        {/*  <!-- End of Container 1 --> */}
+        {/*  <!-- Container 2 Contain the after processing part (Output generation part0000  ) --> */}
+        <div className="container2 row">
+          <div className="col-8">
+            <Result />
+          </div>
+          <div className="col-4">
+            <Graph />
           </div>
         </div>
       </div>
+
       {/*  <!-- End of Main Container --> */}
     </>
   );

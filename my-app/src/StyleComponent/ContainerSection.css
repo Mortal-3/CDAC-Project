@@ -1,5 +1,5 @@
 .mainContainer {
-    margin-top: 2vh;
+    margin-top: 1vh;
     width: 99%;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     justify-content: space-evenly;
 }
 
-.cointainer1 {
+.container1 {
     display: flex;
     width: 99%;
     box-shadow: 0 0 10px rgba(15, 14, 14, 0.2);
@@ -16,6 +16,7 @@
     min-height: 39vh;
     align-items: center;
     justify-content: center;
+    margin-top: 5vh;
 }
 
 .container2 {
@@ -23,6 +24,6 @@
     border: 2px;
     border-radius: 5px solid rgb(245, 245, 245);
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }

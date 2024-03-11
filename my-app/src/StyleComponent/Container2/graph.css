@@ -20,6 +20,7 @@
 
 .graph {
     height: 83%;
+    position: relative;
 }
 
 h2 {

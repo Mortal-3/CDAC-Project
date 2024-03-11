@@ -13,6 +13,7 @@ body {
 
 /* Navbar Styling */
 header {
+    text-align: center;
     margin-bottom: 1px;
 }
 
@@ -28,6 +29,7 @@ nav {
     top: 0;
     z-index: 1001;
     margin-bottom: 1px;
+
 }
 
 nav ul {
