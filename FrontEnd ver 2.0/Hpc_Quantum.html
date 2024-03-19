@@ -11,6 +11,7 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Hpc_Quantum.css">
     <link rel="stylesheet" href="utility.css">
@@ -59,44 +60,44 @@
            </tr>
             <!-- Rows with quantum gate buttons -->
            <tr>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox one" draggable="true">
                <img src="./img/Pauli-X.png" style="height: 1cm; width: 1cm;" alt="Pauli-X" srcset=""></div></td>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox one" draggable="true">
                <img src="./img/Pauli-Y.png" style="height: 1cm; width: 1cm;" alt="Pauli-Y" srcset=""></div></td>
            </tr>
            <tr>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox one" draggable="true">
                <img src="./img/Pauli-Z.png" style="height: 1cm; width: 1cm;" alt="Pauli-Z" srcset=""> </div></td>
-             <td><div class="gateButton" draggable="true" >
+             <td><div class="gateButton one" draggable="true" >
                <img src="./img/Hadamard.png" style="height: 1cm; width: 1cm;" alt="Hadamard" srcset=""></div></td>
            </tr>
            <tr>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox one" draggable="true">
                <img src="./img/S.png" style="height: 1cm; width: 1cm;" alt="T" srcset=""></div></td>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox one" draggable="true">
                <img src="./img/T.png" style="height: 1cm; width: 1cm;" alt="S" srcset=""></div></td>
            </tr>
            <tr>
            <tr>
-             <td><div class="gateButton circuitBox" draggable="true">
-               <img src="./img/Rx.png" style="height: 1cm; width: 1cm;" alt="T" srcset=""></div></td>
-             <td><div class="gateButton circuitBox" draggable="true">
-               <img src="./img/Ry.png" style="height: 1cm; width: 1cm;" alt="S" srcset=""></div></td>
+             <td><div class="gateButton circuitBox two " draggable="true">
+               <img src="./img/Rx.png" style="height: 1cm; width: 1cm;" alt="Rx" srcset=""></div></td>
+             <td><div class="gateButton circuitBox two" draggable="true">
+               <img src="./img/Ry.png" style="height: 1cm; width: 1cm;" alt="Ry" srcset=""></div></td>
            </tr>
            <tr>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox two" draggable="true">
                <img src="./img/CNOT.png" style="height: 1cm; width: 1cm;" alt="Cnot" srcset=""></div></td>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox two" draggable="true">
                <img src="./img/CZ.png" style="height: 1cm; width: 1cm;" alt="CZ" srcset=""></div></td>
            </tr>
            <tr>
-             <td><div class="gateButton circuitBox" draggable="true">
+             <td><div class="gateButton circuitBox two" draggable="true">
                <img src="./img/Swap.png" style="height: 1cm; width: 1cm;" alt="SWAP" srcset=""> </div></td>
-             <td><div class="gateButton circuitBox" draggable="true"> 
+             <td><div class="gateButton circuitBox three" draggable="true"> 
                <img src="./img/Toffoli.png"  style="height: 1cm; width: 1cm;"alt="" srcset=""></div></td>
            </tr>
            <tr>
-             <td> <div class="gateButton circuitBox"draggable="true">
+             <td> <div class="gateButton circuitBox "draggable="true">
                <img src="./img/Measurement.png" style="height: 1cm; width: 1cm;" alt=""></div></td>
              <td> <div class="gateButton circuitBox" draggable="true">
                <img src="./img/Reset.png" style="height: 1cm; width: 1cm;" alt=""></div></td>
@@ -106,43 +107,14 @@
        <!-- Right section for circuit design -->
        <div class="circuit-right">
           <!-- Table for the quantum circuit design -->
-         <div class="circuitDesign scroll-x scroll-y" id="circuitDesign">
-           <table class="circuitTable mytable1" id="table2"  ondrop="dropLogo(event)" ondragover="allowDrop(event)">
+         <div class="circuitDesign scroll-x scroll-y" id="circuitDesign" handleSubmit="handleDelayedExecution()">
+          <form onsubmit={handleSubmit}></form>
+           <table class="circuitTable mytable1" id="table2"  ondrop="dropLogo(event)" ondragover="allowDrop(event)" >
    
-             <tr id="circuitHeading">
-                <!-- Heading for Base State and Gates 1-20 -->
-               <th>Base State</th>
-               <!-- Columns 1 to 20 -->
-               <th>Gate 1</th>
-               <th>Gate 2</th>
-               <th>Gate 3</th>
-               <th>Gate 4</th>
-               <th>Gate 5</th>
-               <th>Gate 6</th>
-               <th>Gate 7</th>
-               <th>Gate 8</th>
-               <th>Gate 9</th>
-               <th>Gate 10</th>
-               <th>Gate 11</th>
-               <th>Gate 12</th>
-               <th>Gate 13</th>
-               <th>Gate 14</th>
-               <th>Gate 15</th>
-               <th>Gate 16</th>
-               <th>Gate 17</th>
-               <th>Gate 18</th>
-               <th>Gate 19</th>
-               <th>Gate 20</th>
-             </tr>
+         
              <tr>
                <!-- Dropdown for Base State in the first column -->
-               <td>
-                 <select>
-                   <option value="|0⟩">|0⟩</option>
-                   <option value="|1⟩">|1⟩</option>
-                 </select>
-                 
-               </td>
+         
                 <!-- Empty drop-area cells for Gates 1-20 -->
                <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
                <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
@@ -168,13 +140,7 @@
              </tr>
              <tr>
               <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
+       
                <!-- Empty drop-area cells for Gates 1-20 -->
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
@@ -200,13 +166,7 @@
             </tr>
             <tr>
               <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
+         
                <!-- Empty drop-area cells for Gates 1-20 -->
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
@@ -232,13 +192,7 @@
             </tr>
             <tr>
               <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
+            
                <!-- Empty drop-area cells for Gates 1-20 -->
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
@@ -264,13 +218,7 @@
             </tr>
             <tr>
               <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
+            
                <!-- Empty drop-area cells for Gates 1-20 -->
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
@@ -294,230 +242,7 @@
               <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
              
             </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
-            <tr>
-              <!-- Dropdown for Base State in the first column -->
-              <td>
-                <select>
-                  <option value="|0⟩">|0⟩</option>
-                  <option value="|1⟩">|1⟩</option>
-                </select>
-                
-              </td>
-               <!-- Empty drop-area cells for Gates 1-20 -->
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-              <td class="circuitBox drop-area"  ondrop="dropLogo(event)" ondragover="allowDrop(event)"></td>
-             
-            </tr>
+
              <!-- ... Repeat the above row structure for more rows -->
              <!-- ************************************************* -->
            </table>
@@ -608,6 +333,7 @@
     Copyright &#169; CDAC-Patna || All right reserved ||
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="Script.js"></script>
   </body>
   
 </html>
