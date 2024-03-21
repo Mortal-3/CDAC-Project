@@ -12,9 +12,9 @@ app.config['SQLALCHEMY_DATABASE_URI']=False
 def simulator():
     return render_template( 'simulator.html' )
 
-@app.route('/',methods=['GET','POST'])
-def result():
-    return render_template( 'result.html' )
+# @app.route('/',methods=['GET','POST'])
+# def result():
+#     return render_template( 'result.html' )
 
 @app.route('/about',methods=['GET',"POST"])
 def about():

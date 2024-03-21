@@ -3,84 +3,85 @@
 
 <div class="container-fluid d-flex flex-column " id="simulator" style="height: 97vh; width: 97vw; display: block;">
 
-  <div class="first row flex-grow-1 shadow mb-1" style="background-color: #edeff1; height: 47%;">
+  <div class="first row flex-grow-1 shadow mb-1"
+    style="background-color: #edeff1; height: 47%;    justify-content: space-evenly;">
     <!-- *********************************************CATALOG-FRONTEND********************************** -->
     <!-- Quantum Gate Catalog -->
-    <div class="col-2">
-      <table class="table">
+    <div class="col-2 shadow">
+      <table class="table mt-2 text-center ">
         <thead>
           <tr>
-            <th colspan="2">Quantum Gate</th>
+            <th colspan="2" style="font-size: x-large">Quantum Gate</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>
-              <div class="gateButton  logo-size">
+            <td style="text-align: -webkit-center;">
+              <div class="gateButton  logo-size center">
                 <img src="./../static/img/Pauli-X.png" alt="Pauli-X" class="img-fluid" draggable="true">
               </div>
             </td>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Pauli-Y.png" alt="Pauli-Y" class="img-fluid" draggable="true">
               </div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Pauli-Z.png" alt="Pauli-Z" class="img-fluid" draggable="true">
               </div>
             </td>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Hadamard.png" alt="Hadamard" class="img-fluid" draggable="true">
               </div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/S.png" alt="S" class="img-fluid" draggable="true">
               </div>
             </td>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/T.png" alt="T" class="img-fluid" draggable="true">
               </div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/CNOT.png" alt="CNOT" class="img-fluid" draggable="true">
               </div>
             </td>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/CZ.png" alt="CZ" class="img-fluid" draggable="true">
               </div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Swap.png" alt="Swap" class="img-fluid" draggable="true">
               </div>
             </td>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Toffoli.png" alt="Toffoli" class="img-fluid" draggable="true">
               </div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Measurement.png" alt="Measurement" class="img-fluid" draggable="true">
               </div>
             </td>
-            <td>
+            <td style="text-align: -webkit-center;">
               <div class="gateButton  logo-size">
                 <img src="./../static/img/Reset.png" alt="Reset" class="img-fluid" draggable="true">
               </div>
@@ -92,7 +93,7 @@
     <!-- **************************************CIRCUIT-SIMULATOR********************************* -->
     <!-- Circuit Design Table -->
 
-    <div class="row col-6" style="height: 27rem;overflow: scroll;">
+    <div class="row col-6 shadow" style="height: -webkit-fill-available;overflow: scroll;">
       <!-- First table -->
       <div class="col-1 " style="height: 27rem;">
         <table class="table table-bordered w-100 h-100">
@@ -110,7 +111,7 @@
 
       <!-- Second table -->
       <div class="col-11" style="height: 27rem;">
-        <table class="table h-100">
+        <table class="table h-100" id="dataTable">
           <tbody>
             {% for i in range(12) %}
             <tr style="height: 3.5rem;">
@@ -127,28 +128,44 @@
     </div>
 
     <!-- *********************************************CIRCUIT CONTROLLER*********************************** -->
-    <div class="circuit-controller col-1 d-flex flex-column justify-content-center">
+    <div class="circuit-controller col-1 d-flex flex-column justify-content-center shadow" style="width: 4rem;
+    margin-left: 19px;
+    height: -webkit-fill-available;">
       <div class="mb-4">
-        <!-- <button class="btn btn-primary btn-block w-80 " onclick="window.history.back()">Back</button> -->
-        <button class="btn btn-primary btn-block w-80 " id="backButton">Back</button>
-      </div>
-      <div class="mb-4"><a>
-          <button class="btn btn-primary btn-block w-80">Forward</button>
-        </a>
+        <button class="btn btn-outline-secondary btn-block " id="backButton" style="border-radius: 50%;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16" style="font-weight: bold;">
+            <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+          </svg>
+        </button>
       </div>
       <div class="mb-4">
-        <a href="/">
-          <button class="btn btn-primary ">
-            Reset
-          </button>
-        </a>
+        <button class="btn btn-outline-secondary btn-block  " id="forwardButton" style="border-radius: 50%;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
+            viewBox="0 0 16 16" style="font-weight: bold;">
+            <path fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+          </svg>
+        </button>
+      </div>
+      <div class="mb-4">
+        <button class="btn btn-outline-secondary circle-button " id="resetButton" style="border-radius: 50%;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-clockwise" viewBox="0 0 16 16" style="font-weight: bold;">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
+            <path
+              d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+          </svg>
+        </button>
       </div>
     </div>
+
 
     <!-- **************************************************DISPLAY-CODE***************************************** -->
     <!-- Display code -->
 
-    <div class="code container col-3">
+    <div class="code container col-3" style="height: -webkit-fill-available;">
       <p style="font-size: small; color: yellow">
       <pre>   switch (matrixType) {
                   case "ket0":
@@ -181,8 +198,8 @@
                 <h3 class="underlined">Result</h3>
               </div>
             </div>
-            <div class="matrix text-center">
-              <img src="./../static/img/BarGraph.png" alt="Bar Graph">
+            <div class="matrix display: flex;justify-content: center;">
+              <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
             </div>
           </div>
         </div>
