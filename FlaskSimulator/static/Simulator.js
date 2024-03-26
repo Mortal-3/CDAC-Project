@@ -1,3 +1,7 @@
+// Arrays to store the history of dropped images and their corresponding cells
+let dropHistory = [];
+let redoHistory = [];
+
 function allowDrop(event) {
   event.preventDefault();
 }
@@ -31,8 +35,22 @@ function dropLogo(e) {
     if (nextEmptyCell.children.length > 0) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
+    // If the dragged image has class "2", merge it with the next cell
+    if (draggedImageAlt === "2") {
+      const nextCell = nextEmptyCell.nextElementSibling;
+      if (nextCell) {
+        nextCell.setAttribute("colspan", 2);
+        nextCell.classList.add("bg-danger"); // Add styling if needed
+        return;
+      }
+    }
     const newImage = createImageElement(draggedImageAlt);
     nextEmptyCell.appendChild(newImage);
+    // Add the dropped image and its corresponding cell to the history
+    dropHistory.push({ cell: targetCell, image: newImage });
+
+    // Clear redo history when a new drop occurs
+    redoHistory = [];
   }
 }
 
@@ -48,4 +66,34 @@ function createImageElement(altText) {
   // newImage.style.background = "#ded298";
 
   return newImage;
+}
+
+// Function to handle the undo button click event
+function undoDrop() {
+  // Check if there are any items in the drop history
+  if (dropHistory.length > 0) {
+    // Remove the last item from the drop history
+    const lastDrop = dropHistory.pop();
+
+    // Move the undone image to the redo history
+    redoHistory.push(lastDrop);
+
+    // Remove the image from its corresponding cell
+    lastDrop.cell.removeChild(lastDrop.image);
+  }
+}
+
+// Function to handle the redo button click event
+function redoDrop() {
+  // Check if there are any items in the redo history
+  if (redoHistory.length > 0) {
+    // Remove the last item from the redo history
+    const lastRedo = redoHistory.pop();
+
+    // Move the redo image back to the drop history
+    dropHistory.push(lastRedo);
+
+    // Append the redo image back to its corresponding cell
+    lastRedo.cell.appendChild(lastRedo.image);
+  }
 }

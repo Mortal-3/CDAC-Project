@@ -1,8 +1,6 @@
-/* Custom class for the parent div to control the size */
-/* This CSS use in Gate Catalog Able Div and img part */
+/* This CSS use in Gate Catalog applied on the div and img part */
 .logo-size {
     width: 3rem;
-    /* Adjusted for responsive scaling, approximately 1x1 cm on standard displays */
     height: 3rem;
     display: flex;
     justify-content: center;
@@ -12,26 +10,18 @@
 
 .logo-size img {
     width: 100%;
-    /* Makes the image fully occupy the parent's size */
     height: auto;
-    /* Keeps the image aspect ratio */
 }
 
-/* ***************************************CSS FOR CIRCUIT - SIMULATOR AREA ************************* */
+/* ******************CSS FOR CIRCUIT - SIMULATOR AREA ********************** */
 
-/* Responsive styling for cells */
 .circuitBox {
     width: 16.666%;
     height: 16.666%;
-    /* 100% / 6 columns = 16.666% */
-    /* padding-top: 16.666%; */
-    /* Maintain 1:1 aspect ratio */
+
 }
 
-/* Table container */
 .table-container {
     border: 1px solid #ddd;
     overflow-y: auto;
 }
-
-/* *******************************Controller BUTTON  ************************* */
