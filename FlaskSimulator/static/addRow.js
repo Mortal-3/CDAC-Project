@@ -13,9 +13,8 @@ function addRow() {
 
   // Create a new row for table 1
   var newRow1 = document.createElement("tr");
-  var rowCount1 = currentRowCount + 1;
   var td1 = document.createElement("td");
-  td1.textContent = "q" + rowCount1 + ":";
+  td1.textContent = "q" + currentRowCount + ":";
   td1.style.width = "2.6rem"; // Adjust width as needed
   td1.style.height = "3.5rem"; // Adjust height as needed
   td1.style.paddingTop = "1.1rem"; // Adjust height as needed

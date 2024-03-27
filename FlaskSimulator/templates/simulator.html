@@ -87,12 +87,12 @@
     </table>
   </div>
   <!-- *********************************************CIRCUIT-SIMULATOR********************************** -->
-  <div class="row col-6 shadow table-responsive" style="height: -webkit-fill-available; overflow-x: auto;">
+  <div class=" simulator row col-6 shadow table-responsive" style="height: -webkit-fill-available; overflow-x: auto;">
     <!-- First table -->
     <div class="col-1" style="height: 27rem;">
-      <table class=" table1 table table-bordered w-100 h-100">
+      <table class=" table1 table table-bordered w-100 ">
         <tbody>
-          {% for i in range(9) %}
+          {% for i in range(8) %}
           <tr class="d-flex align-items-center justify-content-center" style="height: 3.5rem;">
             <td>q{{i}}:</td>
           </tr>
@@ -103,11 +103,11 @@
 
     <!-- Second table -->
     <div class="col-11" style="height: 27rem;">
-      <table class=" table2 table  h-100" id="dataTable" style="table-layout: fixed;">
+      <table class=" table2 table " id="dataTable" style="table-layout: fixed;">
         <tbody>
-          {% for i in range(9) %}
+          {% for i in range(8) %}
           <tr style="height: 3.5rem;">
-            {% for j in range(15) %}
+            {% for j in range(20) %}
             <td class="circuitBox bg-danger" ondrop="dropLogo(event)" ondragover="allowDrop(event)"
               style="width: 3.6rem;"></td>
             {% endfor %}
@@ -191,22 +191,22 @@
     <div class=" gateMatrix shadow scroll" style="overflow: scroll; ">
       <pre style="    height: -webkit-fill-available; font-size: medium;font-weight: 500;">
 
- 1>    Pauli-X Gate (Paulix):    [[0, 1]
+ 1>    Pauli-X Gate        :    [[0, 1]
                                  [1, 0]]
      
- 2>    Pauli-Y Gate (Pauliy):    [[0, -i]
+ 2>    Pauli-Y Gate        :    [[0, -i]
                                  [i, 0]]
      
- 3>    Pauli-Z Gate (Pauliz):    [[1, 0]
+ 3>    Pauli-Z Gate        :    [[1, 0]
                                  [0, -1]]
      
- 4>    Hadamard Gate:            [[1/sqrt(2), 1/sqrt(2)],
+ 4>    Hadamard Gate       :     [[1/sqrt(2), 1/sqrt(2)],
                                  [1/sqrt(2), -1/sqrt(2)]]
      
- 5>    S Gate:                   [[1, 0]
+ 5>    S Gate              :     [[1, 0]
                                   [0, i]]
      
- 6>    T Gate:                   [[1, 0]
+ 6>    T Gate              :     [[1, 0]
                                   [0, exp(i*pi/4)]]
      
  7>    CNOT (Controlled-NOT) Gate:[[1, 0, 0, 0]
@@ -219,12 +219,12 @@
                                    [0, 0, 1, 0]
                                    [0, 0, 0, -1]]
      
- 9>    Swap Gate:                 [[1, 0, 0, 0]
+ 9>    Swap Gate           :      [[1, 0, 0, 0]
                                    [0, 0, 1, 0]
                                    [0, 1, 0, 0]
                                    [0, 0, 0, 1]]
      
- 10>   Toffoli Gate:              [[1, 0, 0, 0, 0, 0, 0, 0] 
+ 10>   Toffoli Gate        :      [[1, 0, 0, 0, 0, 0, 0, 0] 
                                    [0, 1, 0, 0, 0, 0, 0, 0]
                                    [0, 0, 1, 0, 0, 0, 0, 0]
                                    [0, 0, 0, 1, 0, 0, 0, 0]

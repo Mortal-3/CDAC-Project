@@ -35,23 +35,22 @@ function dropLogo(e) {
     if (nextEmptyCell.children.length > 0) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
-    // If the dragged image has class "2", merge it with the next cell
-    if (draggedImageAlt === "2") {
-      const nextCell = nextEmptyCell.nextElementSibling;
-      if (nextCell) {
-        nextCell.setAttribute("colspan", 2);
-        nextCell.classList.add("bg-danger"); // Add styling if needed
-        return;
-      }
-    }
-    const newImage = createImageElement(draggedImageAlt);
-    nextEmptyCell.appendChild(newImage);
-    // Add the dropped image and its corresponding cell to the history
-    dropHistory.push({ cell: targetCell, image: newImage });
-
-    // Clear redo history when a new drop occurs
-    redoHistory = [];
+    // // If the dragged image has class "2", merge it with the next cell
+    // if (draggedImageAlt === "2") {
+    //   const nextCell = nextEmptyCell.nextElementSibling;
+    //   if (nextCell) {
+    //     nextCell.setAttribute("colspan", 2);
+    //     nextCell.classList.add("bg-danger"); // Add styling if needed
+    //     return;
+    //   }
   }
+  const newImage = createImageElement(draggedImageAlt);
+  nextEmptyCell.appendChild(newImage);
+  // Add the dropped image and its corresponding cell to the history
+  dropHistory.push({ cell: targetCell, image: newImage });
+
+  // Clear redo history when a new drop occurs
+  redoHistory = [];
 }
 
 // Function to create a new image element

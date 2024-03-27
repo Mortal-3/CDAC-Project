@@ -1,3 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.simulator {
+    box-sizing: border-box;
+}
+
 /* This CSS use in Gate Catalog applied on the div and img part */
 .logo-size {
     width: 3rem;
