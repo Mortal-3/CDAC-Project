@@ -24,7 +24,7 @@ function addRow() {
   var newRow2 = document.createElement("tr");
   for (var i = 0; i < 15; i++) {
     var td2 = document.createElement("td");
-    td2.className = "circuitBox bg-danger";
+    td2.className = "circuitBox ";
     td2.setAttribute("ondrop", "dropLogo(event)");
     td2.setAttribute("ondragover", "allowDrop(event)");
     td2.style.width = "3.6rem"; // Adjust width as needed

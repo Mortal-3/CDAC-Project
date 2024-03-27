@@ -106,10 +106,9 @@
       <table class=" table2 table " id="dataTable" style="table-layout: fixed;">
         <tbody>
           {% for i in range(8) %}
-          <tr style="height: 3.5rem;">
+          <tr style="height: 3.5rem;" class="">
             {% for j in range(20) %}
-            <td class="circuitBox bg-danger" ondrop="dropLogo(event)" ondragover="allowDrop(event)"
-              style="width: 3.6rem;"></td>
+            <td class="circuitBox " ondrop="dropLogo(event)" ondragover="allowDrop(event)" style="width: 3.6rem;"></td>
             {% endfor %}
           </tr>
           {% endfor %}
