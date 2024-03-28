@@ -36,22 +36,19 @@
 }
 
 /* Wire CSS */
-/* .table2 {
-    z-index: 1;
-    opacity: 50%;
-} */
-
-
-.wire {
+.wire::before {
+    content: "";
     position: absolute;
-    width: 100%;
-    height: 0;
-    border-top: 1px solid black;
-    /* Changed to border-top to create a line */
-    top: 50%;
-    /* Positioned at the middle vertically */
-    transform: translateY(-50%);
-    /* Adjusted to center the wire */
-    z-index: -1;
-    /* Placed behind the image */
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 0.8px;
+    height: 105%;
+    /* Adjust the width of the line */
+    background-color: #565555;
+    ;
+    /* Adjust the color of the line */
+    z-index: 0;
+    /* Ensure the line is behind other content */
+    rotate: 90deg;
 }

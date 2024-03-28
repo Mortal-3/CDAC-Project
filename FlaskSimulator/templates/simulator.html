@@ -93,7 +93,7 @@
     <div class="col-1" style="height: 27rem;">
       <table class=" table1 table table-bordered w-100 " id="bits">
         <tbody id="bits">
-          {% for i in range(2) %}
+          {% for i in range(10) %}
           <tr class="d-flex align-items-center justify-content-center" style="height: 3.5rem;">
             <td>q{{i}}:</td>
           </tr>
@@ -104,14 +104,14 @@
 
     <!-- Second table -->
     <div class="col-11" style="height: 27rem;">
-      <table class="table2 table  table-striped table-secondary" id="dataTable" style="table-layout: fixed;">
+      <!-- <div class="wire"></div> Place the wire div inside the cell -->
+      <table class="table2 table  " id="dataTable" style="table-layout: fixed;">
         <tbody>
-          {% for i in range(2) %}
+          {% for i in range(10) %}
           <tr style="height: 3.5rem;" class="">
             {% for j in range(20) %}
-            <td class="circuitBox" ondrop="dropLogo(event)" ondragover="allowDrop(event)"
+            <td class="circuitBox wire" ondrop="dropLogo(event)" ondragover="allowDrop(event)"
               style="width: 3.6rem; padding-left:0 ; padding-right: 0; position: relative;">
-              <div class="wire"></div> <!-- Place the wire div inside the cell -->
             </td>
             {% endfor %}
           </tr>

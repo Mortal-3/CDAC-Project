@@ -54,8 +54,9 @@ function createImageElement(altText) {
   // Set the width and height of the new image to 1cm x 1cm
   newImage.style.width = "1cm";
   newImage.style.height = "1cm";
-  newImage.style.zIndex = "2";
+  newImage.style.zIndex = "1"; // Set z-index to 1
   // newImage.style.background = "#ded298";
+  newImage.style.background = "white";
 
   return newImage;
 }
