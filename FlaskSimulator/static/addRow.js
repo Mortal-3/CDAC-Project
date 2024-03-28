@@ -1,3 +1,4 @@
+// ***************************New element addition ***********************
 function addRow() {
   // Get the table elements
   var table1 = document.querySelector(".table1 tbody");

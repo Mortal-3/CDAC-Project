@@ -27,7 +27,6 @@
 .circuitBox {
     width: 16.666%;
     height: 16.666%;
-
 }
 
 .table-container {
@@ -45,10 +44,10 @@
     width: 0.8px;
     height: 105%;
     /* Adjust the width of the line */
-    background-color: #565555;
+    background-color: #d04c27;
     ;
     /* Adjust the color of the line */
-    z-index: 0;
+    opacity: 50%;
     /* Ensure the line is behind other content */
     rotate: 90deg;
 }
