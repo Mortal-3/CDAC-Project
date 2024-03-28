@@ -18,17 +18,19 @@ function addRow() {
   td1.style.width = "2.6rem"; // Adjust width as needed
   td1.style.height = "3.5rem"; // Adjust height as needed
   td1.style.paddingTop = "1.1rem"; // Adjust height as needed
+
   newRow1.appendChild(td1);
 
   // Create new td elements for table 2 with the same width and height as existing td elements
   var newRow2 = document.createElement("tr");
   for (var i = 0; i < 15; i++) {
     var td2 = document.createElement("td");
-    td2.className = "circuitBox wire::before";
+    td2.className = "circuitBoxwire::before";
     td2.setAttribute("ondrop", "dropLogo(event)");
     td2.setAttribute("ondragover", "allowDrop(event)");
     td2.style.width = "3.6rem"; // Adjust width as needed
     td2.style.height = "3.5rem"; // Adjust height as needed
+
     newRow2.appendChild(td2);
   }
 
