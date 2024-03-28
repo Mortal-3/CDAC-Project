@@ -35,14 +35,6 @@ function dropLogo(e) {
     if (nextEmptyCell.children.length > 0) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
-    // // If the dragged image has class "2", merge it with the next cell
-    // if (draggedImageAlt === "2") {
-    //   const nextCell = nextEmptyCell.nextElementSibling;
-    //   if (nextCell) {
-    //     nextCell.setAttribute("colspan", 2);
-    //     nextCell.classList.add("bg-danger"); // Add styling if needed
-    //     return;
-    //   }
   }
   const newImage = createImageElement(draggedImageAlt);
   nextEmptyCell.appendChild(newImage);
@@ -62,6 +54,7 @@ function createImageElement(altText) {
   // Set the width and height of the new image to 1cm x 1cm
   newImage.style.width = "1cm";
   newImage.style.height = "1cm";
+  newImage.style.zIndex = "2";
   // newImage.style.background = "#ded298";
 
   return newImage;
