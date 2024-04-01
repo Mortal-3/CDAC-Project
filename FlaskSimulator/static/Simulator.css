@@ -29,10 +29,10 @@
     height: 16.666%;
 }
 
-.table-container {
+/* .table-container {
     border: 1px solid #ddd;
     overflow-y: auto;
-}
+} */
 
 /* Wire CSS */
 .wire::before {
@@ -50,4 +50,41 @@
     opacity: 50%;
     /* Ensure the line is behind other content */
     rotate: 90deg;
+}
+
+/* Media Query for larger screen */
+@media screen and (min-width: 22in) {
+
+    /* Adjust the layout for larger screens */
+    .first {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+    }
+
+    .simulator {
+        flex-grow: 1;
+        height: auto;
+    }
+
+    .col-1 {
+        height: auto;
+    }
+
+    .col-11 {
+        height: auto;
+    }
+
+    .circuit-controller {
+        height: auto;
+    }
+
+    .code {
+        height: auto;
+    }
+
+    .second {
+        width: 100%;
+        height: auto;
+    }
 }

@@ -15,22 +15,29 @@ function addRow() {
   // Create a new row for table 1
   var newRow1 = document.createElement("tr");
   var td1 = document.createElement("td");
-  td1.textContent = "q" + currentRowCount + ":";
+  td1.textContent = "q" + "[" + currentRowCount + "]";
   td1.style.width = "2.6rem"; // Adjust width as needed
   td1.style.height = "3.5rem"; // Adjust height as needed
   td1.style.paddingTop = "1.1rem"; // Adjust height as needed
-
+  td1.className = " p-3 align-middle";
   newRow1.appendChild(td1);
 
   // Create new td elements for table 2 with the same width and height as existing td elements
   var newRow2 = document.createElement("tr");
   for (var i = 0; i < 15; i++) {
     var td2 = document.createElement("td");
-    td2.className = "circuitBoxwire::before";
+    td2.className = "circuitBox wire"; // Add the 'wire' class to the td element
     td2.setAttribute("ondrop", "dropLogo(event)");
     td2.setAttribute("ondragover", "allowDrop(event)");
     td2.style.width = "3.6rem"; // Adjust width as needed
     td2.style.height = "3.5rem"; // Adjust height as needed
+    td2.style.padding = "0"; // Remove padding
+    td2.style.position = "relative"; // Ensure position is relative
+
+    // Append the wire pseudo-element
+    var wire = document.createElement("div");
+    wire.className = "wire";
+    td2.appendChild(wire);
 
     newRow2.appendChild(td2);
   }

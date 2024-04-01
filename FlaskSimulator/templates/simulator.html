@@ -6,7 +6,7 @@
     <table class="table mt-2 text-center ">
       <thead>
         <tr>
-          <th colspan="2" style="font-size: x-large">Quantum Gate</th>
+          <th colspan="2" style="font-size: 2rem">Quantum Gate</th>
         </tr>
       </thead>
       <tbody>
@@ -91,13 +91,15 @@
   <div class=" simulator row col-6 shadow table-responsive" style="height: -webkit-fill-available; overflow-x: auto;">
     <!-- First table -->
     <div class="col-1" style="height: 27rem;">
-      <table class=" table1 table table-bordered w-100 " id="bits">
+      <table class=" table1 table  w-100 " id="bits">
         <tbody id="bits">
-          {% for i in range(10) %}
-          <tr class="d-flex align-items-center justify-content-center" style="height: 3.5rem;">
-            <td>q{{i}}:</td>
-          </tr>
-          {% endfor %}
+          {% for i in range(5) %}
+          <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem; 
+  
+">
+            <td class="p-3 align-middle">q{{[i]}}</td>
+
+            {% endfor %}
         </tbody>
       </table>
     </div>
@@ -107,10 +109,10 @@
       <!-- <div class="wire"></div> Place the wire div inside the cell -->
       <table class="table2 table  " id="dataTable" style="table-layout: fixed;">
         <tbody>
-          {% for i in range(10) %}
-          <tr style="height: 3.5rem;" class="">
+          {% for i in range(5) %}
+          <tr style="height: 3.5rem;">
             {% for j in range(20) %}
-            <td class="circuitBox wire" ondrop="dropLogo(event)" ondragover="allowDrop(event)"
+            <td class="circuitBox wire " ondrop="dropLogo(event)" ondragover="allowDrop(event)"
               style="width: 3.6rem; padding-left:0 ; padding-right: 0; position: relative;">
             </td>
             {% endfor %}
