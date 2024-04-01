@@ -24,7 +24,7 @@ function addRow() {
 
   // Create new td elements for table 2 with the same width and height as existing td elements
   var newRow2 = document.createElement("tr");
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < 20; i++) {
     var td2 = document.createElement("td");
     td2.className = "circuitBox wire"; // Add the 'wire' class to the td element
     td2.setAttribute("ondrop", "dropLogo(event)");

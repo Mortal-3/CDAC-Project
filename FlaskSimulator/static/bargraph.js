@@ -1,30 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var chart; // Declare a variable to store the chart instance
+
   // Function to fetch the number of <tr> elements in the table
   function countRows() {
-    var rowCount = document.querySelectorAll("#bits tbody tr").length;
-    console.log("Number of rows:", rowCount);
-    return rowCount;
+    return document.querySelectorAll("#bits tbody tr").length;
   }
-
-  // Call the countRows function initially
-  var rowCount = countRows();
-
-  // Observer to watch for changes in the table
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-      // If nodes are added or removed, call countRows function again
-      if (mutation.type === "childList") {
-        rowCount = countRows();
-        updateChart(); // Update the chart with new data
-      }
-    });
-  });
-
-  // Configure the observer to watch for changes in the table
-  var config = { childList: true, subtree: true };
-
-  // Start observing the table for changes
-  observer.observe(document.getElementById("bits"), config);
 
   // Function to generate binary values based on the number of rows
   function generateBinaryValues(rowCount) {
@@ -37,8 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to update the chart with new data
   function updateChart() {
+    var rowCount = countRows();
     var xValues = generateBinaryValues(rowCount);
-    new Chart("myChart", {
+    var yValues = [100, 80, 60, 40, 20, 0];
+    var fadedGreyColors = Array.from(
+      { length: xValues.length },
+      () => "rgba(169, 169, 169, 0.5)"
+    ); // Faded grey colors
+
+    if (chart) {
+      // Clear the previous chart data
+      chart.destroy();
+    }
+
+    // Create the new chart
+    chart = new Chart("myChart", {
       type: "bar",
       data: {
         labels: xValues,
@@ -69,16 +62,29 @@ document.addEventListener("DOMContentLoaded", function () {
             },
           ],
         },
+        onHover: function (event, chartElement) {
+          event.stopPropagation();
+        },
       },
     });
   }
 
   // Initial chart setup
-  var xValues = generateBinaryValues(rowCount);
-  var yValues = [100, 80, 60, 40, 20, 0];
-  var fadedGreyColors = Array.from(
-    { length: xValues.length },
-    () => "rgba(169, 169, 169, 0.5)"
-  ); // Faded grey colors
   updateChart();
+
+  // Observer to watch for changes in the table
+  var observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      // If nodes are added or removed, update the chart
+      if (mutation.type === "childList") {
+        updateChart();
+      }
+    });
+  });
+
+  // Configure the observer to watch for changes in the table
+  var config = { childList: true, subtree: true };
+
+  // Start observing the table for changes
+  observer.observe(document.getElementById("bits"), config);
 });
