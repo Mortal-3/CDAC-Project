@@ -12,9 +12,36 @@ function drag(event) {
 }
 
 // Select all elements with class 'drop-area' inside elements with class 'circuitBox'
-const table2Cells = document.querySelectorAll(".circuitBox .drop-area");
 
-// Function to handle the drop event
+// Select the table element and also updating the number of rows in the table
+const table2Cells = document.querySelector(".table2 tbody");
+
+// Function to update the rowCount variable
+function updateRowCount() {
+  rowCount = table2Cells.querySelectorAll("tr").length;
+}
+
+// Initial call to updateRowCount to set the initial value
+updateRowCount();
+
+// Observer to watch for changes in the table
+const observer = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    // If nodes are added or removed, update the rowCount variable
+    if (mutation.type === "childList") {
+      updateRowCount();
+    }
+  });
+});
+
+// Configure the observer to watch for changes in the table
+const config = { childList: true, subtree: true };
+
+// Start observing the table for changes
+observer.observe(table2Cells, config);
+
+// Define the dropLogo function outside of the if condition
+// Define the dropLogo function outside of the if condition
 function dropLogo(e) {
   e.preventDefault();
 
@@ -37,7 +64,42 @@ function dropLogo(e) {
     }
   }
   const newImage = createImageElement(draggedImageAlt);
-  nextEmptyCell.appendChild(newImage);
+  // nextEmptyCell.appendChild(newImage);
+  // Apply the condition and call dropLogo function when condition is met
+  if (
+    newImage.id === "Pauli-X" ||
+    newImage.id === "Pauli-Y" ||
+    newImage.id === "Pauli-Z" ||
+    newImage.id === "Hadamard" ||
+    newImage.id === "S" ||
+    newImage.id === "T"
+  ) {
+    // ********************************Single bit gate Applied
+    nextEmptyCell.appendChild(newImage);
+    console.log(newImage.id, "gate inserted into circuit");
+  } else if (
+    (newImage.id === "CNOT" ||
+      newImage.id === "CZ" ||
+      newImage.id === "Swap") &&
+    rowCount >= 2
+  ) {
+    // Check if table2 has at least 2 rows
+    // ******************************** Bit Gate Applied
+    console.log(rowCount.length);
+    console.log(newImage.id, "gate inserted into circuit");
+    console.log("2 bit gate Updated soon .....!");
+  } else if (newImage.id === "Toffoli" && rowCount >= 3) {
+    console.log(rowCount.length);
+    console.log(newImage.id, "gate inserted into circuit");
+    console.log("Multi-bit gate updated soon .....!");
+  } else if (newImage.id === "Measurement") {
+    console.log(newImage.id, "gate inserted into circuit");
+    console.log("Multi-bit gate updated soon .....!");
+  } else if (newImage.id === "reset") {
+    console.log(newImage.id, "gate inserted into circuit");
+    console.log("Reset Not Working");
+  }
+
   // Add the dropped image and its corresponding cell to the history
   dropHistory.push({ cell: targetCell, image: newImage });
 
@@ -47,18 +109,22 @@ function dropLogo(e) {
 
 // Function to create a new image element
 function createImageElement(altText) {
+  // Extract the filename from the altText (assuming it's a URL)
+  const filename = altText.split("/").pop().split(".")[0];
+
+  // Create the new image element
   const newImage = document.createElement("img");
-  newImage.src = altText; // Assuming the alt text contains the image source
-  newImage.alt = altText;
+  newImage.src = altText;
+  newImage.alt = filename;
+  newImage.id = filename; // Set the id attribute to the filename
 
   // Set the width and height of the new image to 1cm x 1cm
   newImage.style.width = "1cm";
   newImage.style.height = "1cm";
   newImage.style.zIndex = "1";
-  // newImage.style.background = "#ded298";
   newImage.style.opacity = "1";
-  newImage.style.backgroundColor = "orange";
-  console.log("Created Image", newImage);
+  newImage.style.backgroundColor = "#f9e0b3";
+  // console.log("Created Image = ", newImage.id);
   return newImage;
 }
 
@@ -91,3 +157,7 @@ function redoDrop() {
     lastRedo.cell.appendChild(lastRedo.image);
   }
 }
+// **************************************************
+
+// Get all the images with class 'gateButton'
+var images = document.querySelectorAll(".gateButton img");
