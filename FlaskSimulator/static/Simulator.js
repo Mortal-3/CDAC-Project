@@ -58,7 +58,7 @@ function createImageElement(altText) {
   // newImage.style.background = "#ded298";
   newImage.style.opacity = "1";
   newImage.style.backgroundColor = "orange";
-
+  console.log("Created Image", newImage);
   return newImage;
 }
 

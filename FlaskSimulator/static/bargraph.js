@@ -15,15 +15,31 @@ document.addEventListener("DOMContentLoaded", function () {
     return binaryValues;
   }
 
+  // Function to generate background colors array based on y-values
+  function generateBackgroundColors(yValues) {
+    var backgroundColors = [];
+    yValues.forEach(function (value) {
+      if (value > 80) {
+        backgroundColors.push("primary");
+      } else if (value > 60) {
+        backgroundColors.push("red");
+      } else if (value > 40) {
+        backgroundColors.push("orange");
+      } else if (value > 20) {
+        backgroundColors.push("green");
+      } else {
+        backgroundColors.push("brown");
+      }
+    });
+    return backgroundColors;
+  }
+
   // Function to update the chart with new data
   function updateChart() {
     var rowCount = countRows();
     var xValues = generateBinaryValues(rowCount);
     var yValues = [100, 80, 60, 40, 20, 0];
-    var fadedGreyColors = Array.from(
-      { length: xValues.length },
-      () => "rgba(169, 169, 169, 0.5)"
-    ); // Faded grey colors
+    var backgroundColors = generateBackgroundColors(yValues);
 
     if (chart) {
       // Clear the previous chart data
@@ -37,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: xValues,
         datasets: [
           {
-            backgroundColor: fadedGreyColors,
+            backgroundColor: backgroundColors,
             data: yValues,
           },
         ],
