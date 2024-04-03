@@ -171,8 +171,7 @@ function createImageElement(altText) {
 
   return newImage;
 }
-
-// Function to create the pop-up menu
+//***************************** */ Function to create the pop-up menu
 function createPopupMenu(image, cell) {
   // Create the pop-up menu container
   const popupMenu = document.createElement("div");
@@ -185,9 +184,22 @@ function createPopupMenu(image, cell) {
     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
   </svg>`; // SVG icon for the dustbin
+
+  // Add event listener to remove the image and corresponding gateWire div
   removeOption.addEventListener("click", function () {
     // Remove the image from the cell
     cell.removeChild(image);
+
+    // Remove the corresponding gateWire div if it exists
+    const correspondingCell = cell.parentElement.querySelector(
+      `td:nth-child(${
+        Array.from(cell.parentElement.children).indexOf(cell) + 1
+      })`
+    );
+    if (correspondingCell && correspondingCell.gateWireDiv) {
+      correspondingCell.gateWireDiv.remove();
+      delete correspondingCell.gateWireDiv;
+    }
 
     // Remove the image from the drop history
     const index = dropHistory.findIndex((item) => item.image === image);

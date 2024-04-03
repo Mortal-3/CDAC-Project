@@ -64,6 +64,18 @@
     margin-top: 1.8rem;
 }
 
+.gateWireE {
+    width: 3px;
+    height: 133%;
+    background-color: black;
+    position: absolute;
+    left: 33%;
+    top: 0;
+    z-index: 1;
+    transform: translateX(-50%);
+    margin-top: 1.8rem;
+}
+
 /* Media Query for larger screen */
 /* Custom CSS for responsiveness */
 
