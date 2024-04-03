@@ -41,7 +41,7 @@
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 0.8px;
+    width: 1px;
     height: 105%;
     /* Adjust the width of the line */
     background-color: #d04c27;
@@ -51,6 +51,8 @@
     /* Ensure the line is behind other content */
     rotate: 90deg;
 }
+
+.gateWire {}
 
 /* Media Query for larger screen */
 @media screen and (min-width: 22in) {

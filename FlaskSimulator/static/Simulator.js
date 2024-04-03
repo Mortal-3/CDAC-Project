@@ -1,6 +1,7 @@
 // Arrays to store the history of dropped images and their corresponding cells
 let dropHistory = [];
 let redoHistory = [];
+let rowCount = 0; // Initialize rowCount variable
 
 function allowDrop(event) {
   event.preventDefault();
@@ -10,8 +11,6 @@ function drag(event) {
   // Store the dragged element's ID from table 1
   event.dataTransfer.setData("text/plain", event.target.alt);
 }
-
-// Select all elements with class 'drop-area' inside elements with class 'circuitBox'
 
 // Select the table element and also updating the number of rows in the table
 const table2Cells = document.querySelector(".table2 tbody");
@@ -41,7 +40,6 @@ const config = { childList: true, subtree: true };
 observer.observe(table2Cells, config);
 
 // Define the dropLogo function outside of the if condition
-// Define the dropLogo function outside of the if condition
 function dropLogo(e) {
   e.preventDefault();
 
@@ -63,43 +61,63 @@ function dropLogo(e) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
   }
+
   const newImage = createImageElement(draggedImageAlt);
-  // nextEmptyCell.appendChild(newImage);
-  // Apply the condition and call dropLogo function when condition is met
+
+  // ********************************Single bit gate Applied here**********************************
   if (
     newImage.id === "Pauli-X" ||
     newImage.id === "Pauli-Y" ||
     newImage.id === "Pauli-Z" ||
     newImage.id === "Hadamard" ||
     newImage.id === "S" ||
-    newImage.id === "T"
+    newImage.id === "T" ||
+    newImage.id === "Connector" ||
+    newImage.id === "Measurement"
   ) {
-    // ********************************Single bit gate Applied
-    nextEmptyCell.appendChild(newImage);
+    nextEmptyCell.appendChild(newImage); // Apply the condition and call dropLogo function when condition is met
     console.log(newImage.id, "gate inserted into circuit");
-  } else if (
+  }
+  // ******************************** 2-Bit Gate Applied
+  else if (
     (newImage.id === "CNOT" ||
       newImage.id === "CZ" ||
       newImage.id === "Swap") &&
     rowCount >= 2
   ) {
     // Check if table2 has at least 2 rows
-    // ******************************** Bit Gate Applied
-    console.log(rowCount.length);
+    if (adjacentRow.id !== "0") {
+      // Check if not first row
+      // Apply gateWire class to the corresponding cell in the previous row
+      const previousRow = adjacentRow.previousElementSibling;
+      if (previousRow) {
+        const correspondingCell = previousRow.querySelector(
+          `td:nth-child(${
+            Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
+          })`
+        );
+        if (correspondingCell && correspondingCell.childElementCount === 0) {
+          const gateWireDiv = document.createElement("div");
+          gateWireDiv.classList.add("gateWire");
+          gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
+          correspondingCell.appendChild(gateWireDiv);
+        }
+      }
+    }
+
+    // Insert the newImage into the nextEmptyCell
+    nextEmptyCell.appendChild(newImage);
+
     console.log(newImage.id, "gate inserted into circuit");
     console.log("2 bit gate Updated soon .....!");
-  } else if (newImage.id === "Toffoli" && rowCount >= 3) {
+  }
+
+  // ********************************************* Multi-bit gate *******************.......!!!!!!!!!!!
+  else if (newImage.id === "Toffoli" && rowCount >= 3) {
     console.log(rowCount.length);
     console.log(newImage.id, "gate inserted into circuit");
     console.log("Multi-bit gate updated soon .....!");
-  } else if (newImage.id === "Measurement") {
-    console.log(newImage.id, "gate inserted into circuit");
-    console.log("Multi-bit gate updated soon .....!");
-  } else if (newImage.id === "reset") {
-    console.log(newImage.id, "gate inserted into circuit");
-    console.log("Reset Not Working");
   }
-
   // Add the dropped image and its corresponding cell to the history
   dropHistory.push({ cell: targetCell, image: newImage });
 
@@ -125,7 +143,73 @@ function createImageElement(altText) {
   newImage.style.opacity = "1";
   newImage.style.backgroundColor = "#f9e0b3";
   // console.log("Created Image = ", newImage.id);
+
+  // Attach click event listener to show pop-up menu
+  newImage.addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevent propagation to parent elements
+
+    // Create the pop-up menu
+    const popupMenu = createPopupMenu(newImage, newImage.parentNode);
+
+    // Position the pop-up menu relative to the clicked image
+    const rect = newImage.getBoundingClientRect();
+    popupMenu.style.position = "absolute";
+    popupMenu.style.top = rect.bottom + "px";
+    popupMenu.style.left = rect.left + "px";
+
+    // Append the pop-up menu to the body
+    document.body.appendChild(popupMenu);
+
+    // Close the pop-up menu when clicking outside of it
+    document.addEventListener("click", function closeMenu(event) {
+      if (!popupMenu.contains(event.target)) {
+        document.removeEventListener("click", closeMenu);
+        popupMenu.remove();
+      }
+    });
+  });
+
   return newImage;
+}
+
+// Function to create the pop-up menu
+function createPopupMenu(image, cell) {
+  // Create the pop-up menu container
+  const popupMenu = document.createElement("div");
+  popupMenu.classList.add("popup-menu");
+
+  // Create the remove option with the SVG icon
+  const removeOption = document.createElement("div");
+  removeOption.classList.add("popup-option");
+  removeOption.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+  </svg>`; // SVG icon for the dustbin
+  removeOption.addEventListener("click", function () {
+    // Remove the image from the cell
+    cell.removeChild(image);
+
+    // Remove the image from the drop history
+    const index = dropHistory.findIndex((item) => item.image === image);
+    if (index !== -1) {
+      dropHistory.splice(index, 1);
+    }
+
+    // Hide the pop-up menu
+    popupMenu.style.display = "none";
+  });
+
+  // Add options to the pop-up menu
+  popupMenu.appendChild(removeOption);
+
+  // Add event listener to hide the pop-up menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (!popupMenu.contains(event.target)) {
+      popupMenu.style.display = "none";
+    }
+  });
+
+  return popupMenu;
 }
 
 // Function to handle the undo button click event
@@ -157,7 +241,3 @@ function redoDrop() {
     lastRedo.cell.appendChild(lastRedo.image);
   }
 }
-// **************************************************
-
-// Get all the images with class 'gateButton'
-var images = document.querySelectorAll(".gateButton img");

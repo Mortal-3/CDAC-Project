@@ -80,7 +80,8 @@
           </td>
           <td style="text-align: -webkit-center;">
             <div class="gateButton  logo-size">
-              <img src="./../static/img/Reset.png" alt="Reset" class="img-fluid" draggable="true" id="reset">
+              <img src="./../static/img/Connector.png" alt="Connector" class="img-fluid" draggable="true"
+                id="Connector">
             </div>
           </td>
         </tr>
@@ -94,13 +95,10 @@
     <!-- First table -->
     <div class="col-1" style="height: 27rem;">
       <table class=" table1 table  w-100 " id="bits">
-        <tbody id="bits">
+        <tbody>
           {% for i in range(5) %}
-          <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem; 
-  
-">
+          <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem;">
             <td class="p-3 align-middle">q{{[i]}}</td>
-
             {% endfor %}
         </tbody>
       </table>
@@ -109,10 +107,10 @@
     <!-- Second table -->
     <div class="col-11" style="height: 27rem;">
       <!-- <div class="wire"></div> Place the wire div inside the cell -->
-      <table class="table2 table  " id="dataTable" style="table-layout: fixed;">
+      <table class="table2 table " id="dataTable" style="table-layout: fixed;">
         <tbody>
           {% for i in range(5) %}
-          <tr style="height: 3.5rem;">
+          <tr style="height: 3.5rem; margin-bottom: 0%;margin-top: 0%;" id="{{i}}">
             {% for j in range(20) %}
             <td class="circuitBox wire " ondrop="dropLogo(event)" ondragover="allowDrop(event)"
               style="width: 3.6rem; padding-left:0 ; padding-right: 0; position: relative;">
@@ -153,7 +151,7 @@
       </button>
     </div>
     <!-- *************************** Undo ************************* -->
-    <div class="mb-4">
+    <!-- <div class="mb-4">
       <button class="btn btn-outline-secondary btn-block " id="backButton" onclick="undoDrop()"
         style="border-radius: 50%;" title="Back">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
@@ -162,9 +160,9 @@
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
         </svg>
       </button>
-    </div>
+    </div> -->
     <!-- *************************** Redo ************************ -->
-    <div class="mb-4">
+    <!-- <div class="mb-4">
       <button class="btn btn-outline-secondary btn-block  " id="forwardButton" onclick="redoDrop()"
         style="border-radius: 50%;" title="Forward">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
@@ -173,7 +171,7 @@
             d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
         </svg>
       </button>
-    </div>
+    </div> -->
     <div class="mb-4">
       <button class="btn btn-outline-secondary circle-button " id="resetButton" style="border-radius: 50%;"
         title="Reset">

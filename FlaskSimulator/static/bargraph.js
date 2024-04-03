@@ -20,15 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
     var backgroundColors = [];
     yValues.forEach(function (value) {
       if (value > 80) {
-        backgroundColors.push("primary");
+        backgroundColors.push("rgb(179 224 249)");
       } else if (value > 60) {
-        backgroundColors.push("red");
+        backgroundColors.push("rgb(239 141 141)");
       } else if (value > 40) {
-        backgroundColors.push("orange");
+        backgroundColors.push("rgb(229 172 104)");
       } else if (value > 20) {
-        backgroundColors.push("green");
+        backgroundColors.push("rgb(156 237 165)");
       } else {
-        backgroundColors.push("brown");
+        backgroundColors.push("#995e5e");
       }
     });
     return backgroundColors;
