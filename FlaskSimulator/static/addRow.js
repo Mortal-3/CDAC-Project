@@ -1,4 +1,3 @@
-// ***************************New element addition ***********************
 function addRow() {
   // Get the table elements
   var table1 = document.querySelector(".table1 tbody");
@@ -24,7 +23,6 @@ function addRow() {
 
   // Create new td elements for table 2 with the same width and height as existing td elements
   var newRow2 = document.createElement("tr");
-  newRow2.setAttribute("id", rowCount); // Set the ID attribute to the row index
   for (var i = 0; i < 20; i++) {
     var td2 = document.createElement("td");
     td2.className = "circuitBox wire"; // Add the 'wire' class to the td element
@@ -39,6 +37,10 @@ function addRow() {
     var wire = document.createElement("div");
     wire.className = "wire";
     td2.appendChild(wire);
+
+    // Generate a unique ID for each td element
+    var tdId = "cell_" + currentRowCount + "_" + i;
+    td2.setAttribute("id", tdId);
 
     newRow2.appendChild(td2);
   }
