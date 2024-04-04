@@ -14,7 +14,7 @@ function drag(event) {
 
 // Select the table element and also updating the number of rows in the table
 const table2Cells = document.querySelector(".table2 tbody");
-
+console.log("my table", table2Cells);
 // Function to update the rowCount variable
 function updateRowCount() {
   rowCount = table2Cells.querySelectorAll("tr").length;
@@ -54,75 +54,80 @@ function dropLogo(e) {
     (cell) => cell.childElementCount === 0
   );
 
-  // If there is an empty cell in the adjacent row, drop the image
+  // Ensure nextEmptyCell is not null before proceeding
   if (nextEmptyCell) {
+    // If there is an empty cell in the adjacent row, drop the image
     // Check if the cell already contains an image, remove it
     if (nextEmptyCell.children.length > 0) {
       nextEmptyCell.removeChild(nextEmptyCell.children[0]);
     }
-  }
 
-  const newImage = createImageElement(draggedImageAlt);
+    const newImage = createImageElement(draggedImageAlt);
 
-  // ********************************Single bit gate Applied here**********************************
-  if (
-    newImage.id === "Pauli-X" ||
-    newImage.id === "Pauli-Y" ||
-    newImage.id === "Pauli-Z" ||
-    newImage.id === "Hadamard" ||
-    newImage.id === "S" ||
-    newImage.id === "T" ||
-    newImage.id === "Connector" ||
-    newImage.id === "Measurement"
-  ) {
-    nextEmptyCell.appendChild(newImage); // Apply the condition and call dropLogo function when condition is met
-    console.log(newImage.id, "gate inserted into circuit");
-  }
-  // ******************************** 2-Bit Gate Applied
-  else if (
-    (newImage.id === "CNOT" ||
-      newImage.id === "CZ" ||
-      newImage.id === "Swap") &&
-    rowCount >= 2
-  ) {
-    // Check if table2 has at least 2 rows
-    if (adjacentRow.id !== "0") {
-      // Check if not first row
-      // Apply gateWire class to the corresponding cell in the previous row
-      const previousRow = adjacentRow.previousElementSibling;
-      if (previousRow) {
-        const correspondingCell = previousRow.querySelector(
-          `td:nth-child(${
-            Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
-          })`
-        );
-        if (correspondingCell && correspondingCell.childElementCount === 0) {
-          const gateWireDiv = document.createElement("div");
-          gateWireDiv.classList.add("gateWire");
-          gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
-          correspondingCell.appendChild(gateWireDiv);
+    // ********************************Single bit gate Applied here**********************************
+    if (
+      newImage.id === "Pauli-X" ||
+      newImage.id === "Pauli-Y" ||
+      newImage.id === "Pauli-Z" ||
+      newImage.id === "Hadamard" ||
+      newImage.id === "S" ||
+      newImage.id === "T" ||
+      newImage.id === "Connector" ||
+      newImage.id === "Measurement"
+    ) {
+      nextEmptyCell.appendChild(newImage); // Apply the condition and call dropLogo function when condition is met
+      console.log(newImage.id, "gate inserted into circuit");
+    }
+    // ******************************** 2-Bit Gate Applied
+    else if (
+      (newImage.id === "CNOT" ||
+        newImage.id === "CZ" ||
+        newImage.id === "Swap") &&
+      rowCount >= 2
+    ) {
+      // Check if table2 has at least 2 rows
+      if (adjacentRow.id !== "0") {
+        // Check if not first row
+        // Apply gateWire class to the corresponding cell in the previous row
+        const previousRow = adjacentRow.previousElementSibling;
+        if (previousRow) {
+          const correspondingCell = previousRow.querySelector(
+            `td:nth-child(${
+              Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
+            })`
+          );
+          if (correspondingCell && correspondingCell.childElementCount === 0) {
+            const gateWireDiv = document.createElement("div");
+            gateWireDiv.classList.add("gateWire");
+            gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
+            correspondingCell.appendChild(gateWireDiv);
+          }
         }
       }
+
+      // Insert the newImage into the nextEmptyCell
+      nextEmptyCell.appendChild(newImage);
+
+      console.log(newImage.id, "gate inserted into circuit");
+      console.log("2 bit gate Updated soon .....!");
     }
 
-    // Insert the newImage into the nextEmptyCell
-    nextEmptyCell.appendChild(newImage);
+    // ********************************************* Multi-bit gate *******************.......!!!!!!!!!!!
+    else if (newImage.id === "Toffoli" && rowCount >= 3) {
+      console.log(rowCount.length);
+      console.log(newImage.id, "gate inserted into circuit");
+      console.log("Multi-bit gate updated soon .....!");
+    }
 
-    console.log(newImage.id, "gate inserted into circuit");
-    console.log("2 bit gate Updated soon .....!");
+    // Add the dropped image and its corresponding cell to the history
+    dropHistory.push({ cell: targetCell, image: newImage });
+
+    // Clear redo history when a new drop occurs
+    redoHistory = [];
   }
-
-  // ********************************************* Multi-bit gate *******************.......!!!!!!!!!!!
-  else if (newImage.id === "Toffoli" && rowCount >= 3) {
-    console.log(rowCount.length);
-    console.log(newImage.id, "gate inserted into circuit");
-    console.log("Multi-bit gate updated soon .....!");
-  }
-  // Add the dropped image and its corresponding cell to the history
-  dropHistory.push({ cell: targetCell, image: newImage });
-
-  // Clear redo history when a new drop occurs
-  redoHistory = [];
+  // else {
+  //   console.error("Error: No empty cell found in the adjacent row.");
+  // }
 }
 
 // Function to create a new image element
@@ -171,6 +176,7 @@ function createImageElement(altText) {
 
   return newImage;
 }
+
 //***************************** */ Function to create the pop-up menu
 function createPopupMenu(image, cell) {
   // Create the pop-up menu container

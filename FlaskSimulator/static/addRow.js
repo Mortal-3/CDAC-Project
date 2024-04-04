@@ -33,11 +33,6 @@ function addRow() {
     td2.style.padding = "0"; // Remove padding
     td2.style.position = "relative"; // Ensure position is relative
 
-    // Append the wire pseudo-element
-    var wire = document.createElement("div");
-    wire.className = "wire";
-    td2.appendChild(wire);
-
     // Generate a unique ID for each td element
     var tdId = "cell_" + currentRowCount + "_" + i;
     td2.setAttribute("id", tdId);
