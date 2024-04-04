@@ -23,15 +23,12 @@ function addRow() {
 
   // Create new td elements for table 2 with the same width and height as existing td elements
   var newRow2 = document.createElement("tr");
+  newRow2.className = "myTr";
   for (var i = 0; i < 20; i++) {
     var td2 = document.createElement("td");
     td2.className = "circuitBox wire"; // Add the 'wire' class to the td element
     td2.setAttribute("ondrop", "dropLogo(event)");
     td2.setAttribute("ondragover", "allowDrop(event)");
-    td2.style.width = "3.6rem"; // Adjust width as needed
-    td2.style.height = "3.5rem"; // Adjust height as needed
-    td2.style.padding = "0"; // Remove padding
-    td2.style.position = "relative"; // Ensure position is relative
 
     // Generate a unique ID for each td element
     var tdId = "cell_" + currentRowCount + "_" + i;

@@ -38,7 +38,7 @@ function handleSubmit() {
 
   console.log("Matrix:");
   matrix.forEach((row) => {
-    console.log("[ " + row.join(" | ") + " ]");
+    console.log("[ " + row.join("  , ") + " ]");
   });
 
   console.log("Rows: " + numRows);
