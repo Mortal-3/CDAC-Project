@@ -52,17 +52,7 @@
     rotate: 90deg;
 }
 
-.gateWire {
-    width: 3px;
-    height: 73%;
-    background-color: black;
-    position: absolute;
-    left: 33%;
-    top: 0;
-    z-index: 1;
-    transform: translateX(-50%);
-    margin-top: 1.8rem;
-}
+.gateWire {}
 
 .gateWireE {
     width: 3px;
@@ -77,30 +67,38 @@
 }
 
 /* Media Query for larger screen */
-/* Custom CSS for responsiveness */
+@media screen and (min-width: 22in) {
 
-/* Adjustments for smaller screens */
-@media (max-width: 767.98px) {
+    /* Adjust the layout for larger screens */
     .first {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        height: auto;
     }
 
-    .simulator,
-    .code {
-        order: 2;
+    .simulator {
+        flex-grow: 1;
+        height: auto;
+    }
+
+    .col-1 {
+        height: auto;
+    }
+
+    .col-11 {
+        height: auto;
     }
 
     .circuit-controller {
-        order: 3;
+        height: auto;
     }
-}
 
-/* Adjustments for medium screens */
-@media (min-width: 768px) and (max-width: 991.98px) {
-    /* Add your custom styles for medium screens */
-}
+    .code {
+        height: auto;
+    }
 
-/* Adjustments for larger screens */
-@media (min-width: 992px) {
-    /* Add your custom styles for larger screens */
+    .second {
+        width: 100%;
+        height: auto;
+    }
 }
