@@ -124,10 +124,9 @@ function dropLogo(e) {
 
     // Clear redo history when a new drop occurs
     redoHistory = [];
+  } else {
+    console.alert("Error: No empty cell found in the adjacent row.");
   }
-  // else {
-  //   console.error("Error: No empty cell found in the adjacent row.");
-  // }
 }
 
 // Function to create a new image element

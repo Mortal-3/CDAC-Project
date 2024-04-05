@@ -2,8 +2,8 @@
 <div class="first row flex-grow-1 shadow mb-1"
   style="background-color: #edeff1; height: 47%;    justify-content: space-evenly; width: 100%; flex-wrap: nowrap;">
   <!-- *********************************************CATALOG-FRONTEND*********************************** -->
-  <div class="col-2 shadow">
-    <table class="table mt-2 text-center ">
+  <div class="col-2 shadow" style="overflow: auto;">
+    <table class="table mt-2 text-center col-12 col-md-8 col-lg-6 col-xl-4 mx-auto ">
       <thead>
         <tr>
           <th colspan="2" style="font-size: 2rem">Quantum Gate</th>
@@ -96,7 +96,7 @@
     <div class="col-1" style="height: 27rem;">
       <table class=" table1 table  w-100 " id="bits">
         <tbody>
-          {% for i in range(7) %}
+          {% for i in range(5) %}
           <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem;">
             <td class="p-3 align-middle">q{{[i]}}</td>
             {% endfor %}
@@ -109,11 +109,10 @@
       <!-- <div class="wire"></div> Place the wire div inside the cell -->
       <table class="table2 table " id="dataTable" style="table-layout: fixed;">
         <tbody>
-          {% for i in range(7) %}
+          {% for i in range(5) %}
           <tr class="myTr" id="{{i}}">
             {% for j in range(20) %}
-            <td class="circuitBox wire " ondrop="dropLogo(event)" ondragover="allowDrop(event)"
-              style="width: 3.6rem; padding-left:0 ; padding-right: 0; position: relative;">
+            <td class="circuitBox wire " ondrop="dropLogo(event)" ondragover="allowDrop(event)">
             </td>
             {% endfor %}
           </tr>
@@ -150,28 +149,8 @@
         </svg>
       </button>
     </div>
-    <!-- *************************** Undo ************************* -->
-    <!-- <div class="mb-4">
-      <button class="btn btn-outline-secondary btn-block " id="backButton" onclick="undoDrop()"
-        style="border-radius: 50%;" title="Back">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
-          viewBox="0 0 16 16" style="font-weight: bold;">
-          <path fill-rule="evenodd"
-            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-        </svg>
-      </button>
-    </div> -->
-    <!-- *************************** Redo ************************ -->
-    <!-- <div class="mb-4">
-      <button class="btn btn-outline-secondary btn-block  " id="forwardButton" onclick="redoDrop()"
-        style="border-radius: 50%;" title="Forward">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
-          viewBox="0 0 16 16" style="font-weight: bold;">
-          <path fill-rule="evenodd"
-            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-        </svg>
-      </button>
-    </div> -->
+    <!-- *************************** Submit ************************* -->
+
     <div class="mb-4">
       <button class="btn btn-outline-secondary circle-button " id="resetButton" style="border-radius: 50%;"
         title="Reset">
@@ -262,7 +241,7 @@
       </div>
       <div class="matrix" style="display: flex; justify-content: space-evenly;">
         <!-- Set a fixed height for the canvas element -->
-        <canvas id="myChart" style="width: 57%; height: 300px;"></canvas>
+        <canvas id="myChart" style="width: 100%; max-width: 700px; height: 400px;"></canvas>
       </div>
     </div>
 
@@ -273,7 +252,7 @@
           <h3><u>BlochSphere</u></h3>
       </div>
       <div class="graph text-center">
-        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto;width: 34rem;">
+        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto;width: 25rem;">
       </div>
     </div>
   </div>
