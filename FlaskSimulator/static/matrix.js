@@ -1,7 +1,7 @@
 function handleSubmit() {
   const dataTable = document.getElementById("dataTable");
   const matrix = [];
-
+  console.log("my data table matrix after submit \n:", dataTable);
   // Find the maximum number of filled cells in any row
   let maxRowLength = 0;
   let numCols = 0;

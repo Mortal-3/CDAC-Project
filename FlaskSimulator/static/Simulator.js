@@ -198,7 +198,7 @@ function createPopupMenu(image, cell) {
     // Remove the corresponding gateWire div if it exists
     const correspondingCell = cell.parentElement.querySelector(
       `td:nth-child(${
-        Array.from(cell.parentElement.children).indexOf(cell) + 1
+        Array.from(cell.parentElement.children).indexOf(cell) - 1
       })`
     );
     if (correspondingCell && correspondingCell.gateWireDiv) {
