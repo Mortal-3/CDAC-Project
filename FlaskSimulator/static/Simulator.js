@@ -196,14 +196,18 @@ function createPopupMenu(image, cell) {
     cell.removeChild(image);
 
     // Remove the corresponding gateWire div if it exists
-    const correspondingCell = cell.parentElement.querySelector(
-      `td:nth-child(${
-        Array.from(cell.parentElement.children).indexOf(cell) - 1
-      })`
-    );
-    if (correspondingCell && correspondingCell.gateWireDiv) {
-      correspondingCell.gateWireDiv.remove();
-      delete correspondingCell.gateWireDiv;
+    if (image.id === "CNOT" || image.id === "CZ" || image.id === "Swap") {
+      const rowIndex = cell.parentElement.rowIndex;
+      const cellIndex = cell.cellIndex;
+      const table = cell.closest("table");
+      const prevRow = table.rows[rowIndex - 1];
+      if (prevRow) {
+        const prevCell = prevRow.cells[cellIndex];
+        if (prevCell && prevCell.gateWireDiv) {
+          prevCell.gateWireDiv.remove();
+          delete prevCell.gateWireDiv;
+        }
+      }
     }
 
     // Remove the image from the drop history
