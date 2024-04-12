@@ -49,25 +49,25 @@
     content: "";
     position: absolute;
     left: 50%;
-    top: 0;
+    top: -15%;
     bottom: 0;
     width: 1px;
-    height: 3.9rem;
+    height: 4.6rem;
     /* Adjust the width of the line */
     background-color: #d04c27;
-    ;
     /* Adjust the color of the line */
     opacity: 50%;
     /* Ensure the line is behind other content */
     rotate: 90deg;
 }
 
+
 .gateWire {
     width: 3px;
-    height: 73%;
+    height: 70%;
     background-color: black;
     position: absolute;
-    left: 46%;
+    left: 37%;
     top: 0;
     z-index: 1;
     transform: translateX(-50%);
@@ -113,4 +113,33 @@
 /* Adjustments for larger screens */
 @media (min-width: 992px) {
     /* Add your custom styles for larger screens */
+}
+
+/* CSS for the upper and lower div */
+.second {
+    display: flex;
+    /* Use flexbox */
+    flex-direction: column;
+    /* Arrange children vertically */
+    height: calc(100vh - 56vh);
+    /* Subtract the height of the navbar and footer */
+}
+
+.container2 {
+    flex: 1;
+    /* Take up remaining vertical space */
+    display: flex;
+    /* Use flexbox */
+    justify-content: space-between;
+    /* Distribute space between children */
+}
+
+.bargraph {
+    width: 69%;
+    /* Take 69% of the available space */
+}
+
+.blochSphere {
+    width: 29%;
+    /* Take 29% of the available space */
 }

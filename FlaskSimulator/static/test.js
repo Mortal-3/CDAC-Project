@@ -7,3 +7,4 @@ setTimeout(() => {
     console.log(element);
   }
 }, 8000);
+000;

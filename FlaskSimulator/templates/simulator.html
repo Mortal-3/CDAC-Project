@@ -92,16 +92,15 @@
   </div>
   <!-- *********************************************CIRCUIT-SIMULATOR********************************** -->
   <!-- HTML -->
-  <div class=" simulator row col-6 shadow table-responsive" style="height: -webkit-fill-available; overflow-x: auto;">
+  <div class=" simulator row col-7 shadow table-responsive" style="height: -webkit-fill-available; overflow-x: auto;">
     <!-- First table -->
     <div class="col-1" style="height: 27rem;">
       <table class=" table1 table  w-100 " id="bits">
-        <tbody>
-          {% for i in range(5) %}
-          <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem;">
-            <td class="p-3 align-middle">q{{[i]}}</td>
-            {% endfor %}
-        </tbody>
+        {% for i in range(5) %}
+        <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem;">
+          <td class="p-3 align-middle" style="width: 5rem;">q{{[i]}}</td>
+          {% endfor %}
+          </tbody>
       </table>
     </div>
 
@@ -183,8 +182,8 @@
         </u>
       </h4>
     </div>
-    <div class=" gateMatrix shadow scroll" style="overflow: scroll; ">
-      <pre style="    height: -webkit-fill-available; font-size: medium;font-weight: 500;">
+    <div class=" gateMatrix shadow " style="overflow: auto; ">
+      <pre style="    font-size: larger;font-weight: 500;">
 
  1>    Pauli-X Gate        :    [[0, 1]
                                  [1, 0]]
@@ -236,23 +235,23 @@
 <div class="second container-fluid shadow mt-1" style=" width: 100%;">
   <div class="container2 d-flex justify-content-center ">
     <div class="bargraph shadow d-flex flex-column" style="flex: 69%;">
-      <div class="bg-body-tertiary p-2 rounded text-center">
-        <h3 class="heading"><u>Probability Chart</u></h3>
+      <div class="bg-body-tertiary p-2 rounded text-center fs-2 fw-bold">
+        <u>Probability Chart</u>
       </div>
       <div class="matrix" style="display: flex; justify-content: space-evenly;">
         <!-- Set a fixed height for the canvas element -->
-        <canvas id="myChart" style="width: 100%; max-width: 700px; height: 400px;"></canvas>
+        <canvas id="myChart" style="width: 58rem;max-width: 59rem;display: block;"></canvas>
       </div>
     </div>
 
     <!-- *************BlochSphere********* -->
     <div class="blochSphere shadow d-flex flex-column ml-4" style="flex: 29%;">
-      <div class="bg-body-tertiary p-2 rounded text-center">
-        <h3 id="graphHeading" class="underlined">
-          <h3><u>BlochSphere</u></h3>
+      <div class="bg-body-tertiary p-2 rounded text-center underlined fs-2 graphHeading fw-bold">
+
+        <u>BlochSphere</u>
       </div>
       <div class="graph text-center">
-        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto;width: 25rem;">
+        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto;width: 35rem;">
       </div>
     </div>
   </div>

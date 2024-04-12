@@ -1,7 +1,7 @@
 function addRow() {
   // Get the table elements
-  var table1 = document.querySelector(".table1 tbody");
-  var table2 = document.querySelector(".table2 tbody");
+  var table1 = document.querySelector("#bits tbody");
+  var table2 = document.querySelector("#dataTable tbody");
 
   // Check if maximum rows limit is reached
   var maxRows = 30;
@@ -15,10 +15,12 @@ function addRow() {
   var newRow1 = document.createElement("tr");
   var td1 = document.createElement("td");
   td1.textContent = "q" + "[" + currentRowCount + "]";
-  td1.style.width = "2.6rem"; // Adjust width as needed
-  td1.style.height = "3.5rem"; // Adjust height as needed
-  td1.style.paddingTop = "1.1rem"; // Adjust height as needed
+  td1.style.width = "5rem"; // Adjust width as needed
+  // td1.style.height = "3.5rem"; // Adjust height as needed
+  // td1.style.paddingTop = "1.1rem"; // Adjust height as needed
   td1.className = " p-3 align-middle";
+  newRow1.className = "d-flex align-items-center justify-content-center mb-0";
+  newRow1.style = "height: 3.5rem;";
   newRow1.appendChild(td1);
 
   // Create new td elements for table 2 with the same width and height as existing td elements
