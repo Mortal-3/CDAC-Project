@@ -14,7 +14,7 @@ function drag(event) {
 
 // Select the table element and also updating the number of rows in the table
 const table2Cells = document.querySelector(".table2 tbody");
-console.log("my table", table2Cells);
+// console.log("my table", table2Cells);
 // Function to update the rowCount variable
 function updateRowCount() {
   rowCount = table2Cells.querySelectorAll("tr").length;
@@ -73,9 +73,23 @@ function dropLogo(e) {
       newImage.id === "S" ||
       newImage.id === "T" ||
       newImage.id === "Connector" ||
+      newImage.id === "Rx" ||
+      newImage.id === "Ry" ||
       newImage.id === "Measurement"
     ) {
-      nextEmptyCell.appendChild(newImage); // Apply the condition and call dropLogo function when condition is met
+      {
+        // If the dropped image is a measurement gate, generate and print the row matrix
+        if (newImage.id === "Measurement") {
+          generateAndPrintRowMatrix(adjacentRow);
+        }
+
+        // Append the new image to the next empty cell
+        nextEmptyCell.appendChild(newImage);
+      }
+
+      // Add the dropped image and its corresponding cell to the history
+      dropHistory.push({ cell: targetCell, image: newImage });
+
       console.log(newImage.id, "gate inserted into circuit");
     }
     // ******************************** 2-Bit Gate Applied
@@ -114,7 +128,56 @@ function dropLogo(e) {
 
     // ********************************************* Multi-bit gate *******************.......!!!!!!!!!!!
     else if (newImage.id === "Toffoli" && rowCount >= 3) {
-      console.log(rowCount.length);
+      // Check if table2 has at least 3 rows
+      if (adjacentRow.id !== "0") {
+        // Check if not first row
+        // Check if the index of the dropped image row is at least 3
+        const droppedRowIndex = Array.from(
+          adjacentRow.parentElement.children
+        ).indexOf(adjacentRow);
+        if (droppedRowIndex >= 2) {
+          // Apply gateWire class to the corresponding cell in the previous previous row(current row -2)
+          const previousPreviousRow =
+            adjacentRow.parentElement.children[droppedRowIndex - 2];
+          if (previousPreviousRow) {
+            const correspondingCell = previousPreviousRow.querySelector(
+              `td:nth-child(${
+                Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
+              })`
+            );
+            if (
+              correspondingCell &&
+              correspondingCell.childElementCount === 0
+            ) {
+              const gateWireDiv = document.createElement("div");
+              gateWireDiv.classList.add("gateWireE");
+              gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
+              correspondingCell.appendChild(gateWireDiv);
+            }
+          }
+          const previousRow = adjacentRow.previousElementSibling;
+          if (previousRow) {
+            const correspondingCell = previousRow.querySelector(
+              `td:nth-child(${
+                Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
+              })`
+            );
+            if (
+              correspondingCell &&
+              correspondingCell.childElementCount === 0
+            ) {
+              const gateWireDiv = document.createElement("div");
+              gateWireDiv.classList.add("gateWire");
+              gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
+              correspondingCell.appendChild(gateWireDiv);
+            }
+          }
+        }
+      }
+
+      // Insert the newImage into the nextEmptyCell
+      nextEmptyCell.appendChild(newImage);
+
       console.log(newImage.id, "gate inserted into circuit");
       console.log("Multi-bit gate updated soon .....!");
     }
@@ -176,7 +239,7 @@ function createImageElement(altText) {
   return newImage;
 }
 
-//***************************** */ Function to create the pop-up menu
+//***************************** */ Function to create the pop-up menu (DELete Option)
 function createPopupMenu(image, cell) {
   // Create the pop-up menu container
   const popupMenu = document.createElement("div");
@@ -195,17 +258,44 @@ function createPopupMenu(image, cell) {
     // Remove the image from the cell
     cell.removeChild(image);
 
-    // Remove the corresponding gateWire div if it exists
-    if (image.id === "CNOT" || image.id === "CZ" || image.id === "Swap") {
+    // Remove the corresponding gateWire div if it exists @ 2-bit gate wire operation
+    if (
+      image.id === "CNOT" ||
+      image.id === "CZ" ||
+      image.id === "Swap" ||
+      image.id === "Toffoli"
+    ) {
       const rowIndex = cell.parentElement.rowIndex;
       const cellIndex = cell.cellIndex;
       const table = cell.closest("table");
       const prevRow = table.rows[rowIndex - 1];
       if (prevRow) {
         const prevCell = prevRow.cells[cellIndex];
-        if (prevCell && prevCell.gateWireDiv) {
-          prevCell.gateWireDiv.remove();
-          delete prevCell.gateWireDiv;
+        if (prevCell && prevCell.firstElementChild) {
+          //******** */
+          prevCell.firstElementChild.remove();
+        }
+      }
+    }
+
+    //JS to remove the divWireE applied @ 3 bit gate  Remove the corresponding gateWire div if it exists
+
+    if (image.id === "Toffoli") {
+      const rowIndex = cell.parentElement.rowIndex;
+
+      const cellIndex = cell.cellIndex;
+
+      const table = cell.closest("table");
+
+      const prevRow = table.rows[rowIndex - 2];
+      if (prevRow) {
+        const prevCell = prevRow.cells[cellIndex]; // Getting the cell in the previous row at the same index
+
+        if (prevCell && prevCell.firstElementChild) {
+          // Check if the cell exists and contains a child element
+          console.log("#bit wire operation", prevCell);
+          prevCell.firstElementChild.remove(); // Remove the first child element (assuming it's the gateWireE div)
+          console.log("# bit wire deleted successfully");
         }
       }
     }
@@ -261,4 +351,37 @@ function redoDrop() {
     // Append the redo image back to its corresponding cell
     lastRedo.cell.appendChild(lastRedo.image);
   }
+}
+// Define the generateAndPrintRowMatrix function
+function generateAndPrintRowMatrix(row) {
+  const rowData = [];
+
+  // Iterate over each cell in the row
+  const cells = row.querySelectorAll("td");
+  let lastFilledIndex = cells.length - 1; // Initialize the last filled index to the last cell index
+
+  // Iterate over each cell in reverse order to find the last filled index
+  for (let i = cells.length - 1; i >= 0; i--) {
+    const cell = cells[i];
+    const isCellFilled = cell.children.length > 0;
+
+    if (isCellFilled) {
+      // If the cell is filled, update the lastFilledIndex and break the loop
+      lastFilledIndex = i;
+      break;
+    }
+  }
+
+  // Iterate over each cell again, starting from the first cell
+  cells.forEach((cell, index) => {
+    if (index <= lastFilledIndex) {
+      // If the cell index is less than or equal to the last filled index, push its ID (text) to rowData
+      const isCellFilled = cell.children.length > 0;
+      rowData.push(isCellFilled ? cell.firstElementChild.id : null);
+    }
+  });
+
+  // Print the generated row matrix to the console
+  console.log("Row Matrix:");
+  console.log(rowData);
 }
