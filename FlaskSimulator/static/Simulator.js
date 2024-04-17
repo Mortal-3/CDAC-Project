@@ -1,6 +1,5 @@
 // Arrays to store the history of dropped images and their corresponding cells
 let dropHistory = [];
-let redoHistory = [];
 let rowCount = 0; // Initialize rowCount variable
 
 function allowDrop(event) {
@@ -14,7 +13,7 @@ function drag(event) {
 
 // Select the table element and also updating the number of rows in the table
 const table2Cells = document.querySelector(".table2 tbody");
-// console.log("my table", table2Cells);
+
 // Function to update the rowCount variable
 function updateRowCount() {
   rowCount = table2Cells.querySelectorAll("tr").length;
@@ -23,7 +22,7 @@ function updateRowCount() {
 // Initial call to updateRowCount to set the initial value
 updateRowCount();
 
-// Observer to watch for changes in the table
+// Observer to watch for changes in the table  -This set of code is for barGraph  send number of rows
 const observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     // If nodes are added or removed, update the rowCount variable
@@ -39,7 +38,7 @@ const config = { childList: true, subtree: true };
 // Start observing the table for changes
 observer.observe(table2Cells, config);
 
-// Define the dropLogo function outside of the if condition
+//************************************************************************ */ Define the dropLogo function outside of the if condition
 function dropLogo(e) {
   e.preventDefault();
 
@@ -72,7 +71,7 @@ function dropLogo(e) {
       newImage.id === "Hadamard" ||
       newImage.id === "S" ||
       newImage.id === "T" ||
-      newImage.id === "Connector" ||
+      newImage.id === "Barrier" ||
       newImage.id === "Rx" ||
       newImage.id === "Ry" ||
       newImage.id === "Measurement"
@@ -86,9 +85,6 @@ function dropLogo(e) {
         // Append the new image to the next empty cell
         nextEmptyCell.appendChild(newImage);
       }
-
-      // Add the dropped image and its corresponding cell to the history
-      dropHistory.push({ cell: targetCell, image: newImage });
 
       console.log(newImage.id, "gate inserted into circuit");
     }
@@ -182,11 +178,8 @@ function dropLogo(e) {
       console.log("Multi-bit gate updated soon .....!");
     }
 
-    // Add the dropped image and its corresponding cell to the history
-    dropHistory.push({ cell: targetCell, image: newImage });
-
     // Clear redo history when a new drop occurs
-    redoHistory = [];
+    dropHistory = [];
   } else {
     console.alert("Error: No empty cell found in the adjacent row.");
   }
@@ -208,8 +201,11 @@ function createImageElement(altText) {
   newImage.style.height = "1cm";
   newImage.style.zIndex = "1";
   newImage.style.opacity = "1";
-  newImage.style.backgroundColor = "#f9e0b3";
-  // console.log("Created Image = ", newImage.id);
+
+  // Exclude setting background color if newImage.id is "Barrier"
+  if (newImage.id !== "Barrier") {
+    newImage.style.backgroundColor = "#f9e0b3";
+  }
 
   // Attach click event listener to show pop-up menu
   newImage.addEventListener("click", function (event) {
@@ -323,35 +319,6 @@ function createPopupMenu(image, cell) {
   return popupMenu;
 }
 
-// Function to handle the undo button click event
-function undoDrop() {
-  // Check if there are any items in the drop history
-  if (dropHistory.length > 0) {
-    // Remove the last item from the drop history
-    const lastDrop = dropHistory.pop();
-
-    // Move the undone image to the redo history
-    redoHistory.push(lastDrop);
-
-    // Remove the image from its corresponding cell
-    lastDrop.cell.removeChild(lastDrop.image);
-  }
-}
-
-// Function to handle the redo button click event
-function redoDrop() {
-  // Check if there are any items in the redo history
-  if (redoHistory.length > 0) {
-    // Remove the last item from the redo history
-    const lastRedo = redoHistory.pop();
-
-    // Move the redo image back to the drop history
-    dropHistory.push(lastRedo);
-
-    // Append the redo image back to its corresponding cell
-    lastRedo.cell.appendChild(lastRedo.image);
-  }
-}
 // Define the generateAndPrintRowMatrix function
 function generateAndPrintRowMatrix(row) {
   const rowData = [];
