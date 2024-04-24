@@ -90,6 +90,20 @@
 
 /* Media Query for larger screen */
 /* Custom CSS for responsiveness */
+.gateMatrixContent {
+    font-size: 1.2em;
+    /* Adjust the initial font size */
+    font-weight: 500;
+    overflow-x: auto;
+}
+
+@media (max-width: 576px) {
+
+    /* Adjust font size for smaller screens */
+    .gateMatrixContent {
+        font-size: 1em;
+    }
+}
 
 /* Adjustments for smaller screens */
 @media (max-width: 767.98px) {

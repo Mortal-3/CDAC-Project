@@ -185,63 +185,61 @@
     </div>
   </div>
   <!-- *********************************************DISPLAY-CODE***************************************** -->
-  <div class="code  col-3 d-flex flex-column" style="height: -webkit-fill-available;    width: auto;">
-    <div class="heading text-center bg-body-tertiary p-2 rounded text-center"
-      style="background-color: rgb(218, 221, 224);">
+  <div class="code col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
+    <div class="heading text-center bg-body-tertiary p-2 rounded">
       <h4>
         <u>
           Gate Matrix
         </u>
       </h4>
     </div>
-    <div class=" gateMatrix shadow " style="overflow: auto; ">
-      <pre style="    font-size: larger;font-weight: 500;">
-
- 1>    Pauli-X Gate        :    [[0, 1]
-                                 [1, 0]]
-     
- 2>    Pauli-Y Gate        :    [[0, -i]
-                                 [i, 0]]
-     
- 3>    Pauli-Z Gate        :    [[1, 0]
-                                 [0, -1]]
-     
- 4>    Hadamard Gate       :     [[1/sqrt(2), 1/sqrt(2)],
-                                 [1/sqrt(2), -1/sqrt(2)]]
-     
- 5>    S Gate              :     [[1, 0]
-                                  [0, i]]
-     
- 6>    T Gate              :     [[1, 0]
-                                  [0, exp(i*pi/4)]]
-     
- 7>    CNOT (Controlled-NOT) Gate:[[1, 0, 0, 0]
-                                   [0, 1, 0, 0]
-                                   [0, 0, 0, 1]
-                                   [0, 0, 1, 0]]
-     
- 8>    CZ (Controlled-Z) Gate:    [[1, 0, 0, 0]
-                                   [0, 1, 0, 0]
-                                   [0, 0, 1, 0]
-                                   [0, 0, 0, -1]]
-     
- 9>    Swap Gate           :      [[1, 0, 0, 0]
-                                   [0, 0, 1, 0]
-                                   [0, 1, 0, 0]
-                                   [0, 0, 0, 1]]
-     
- 10>   Toffoli Gate        :      [[1, 0, 0, 0, 0, 0, 0, 0] 
-                                   [0, 1, 0, 0, 0, 0, 0, 0]
-                                   [0, 0, 1, 0, 0, 0, 0, 0]
-                                   [0, 0, 0, 1, 0, 0, 0, 0]
-                                   [0, 0, 0, 0, 1, 0, 0, 0]
-                                   [0, 0, 0, 0, 0, 1, 0, 0]
-                                   [0, 0, 0, 0, 0, 0, 0, 1]
-                                   [0, 0, 0, 0, 0, 0, 1, 0]]
-     </pre>
+    <div class="gateMatrix shadow overflow-auto">
+      <pre class="gateMatrixContent">
+        1>    Pauli-X Gate        :    [[0, 1]
+                                       [1, 0]]
+         
+        2>    Pauli-Y Gate        :    [[0, -i]
+                                       [i, 0]]
+         
+        3>    Pauli-Z Gate        :    [[1, 0]
+                                       [0, -1]]
+         
+        4>    Hadamard Gate       :    [[1/sqrt(2), 1/sqrt(2)],
+                                       [1/sqrt(2), -1/sqrt(2)]]
+         
+        5>    S Gate              :    [[1, 0]
+                                       [0, i]]
+         
+        6>    T Gate              :    [[1, 0]
+                                       [0, exp(i*pi/4)]]
+         
+        7>    CNOT (Controlled-NOT) Gate: [[1, 0, 0, 0]
+                                           [0, 1, 0, 0]
+                                           [0, 0, 0, 1]
+                                           [0, 0, 1, 0]]
+         
+        8>    CZ (Controlled-Z) Gate:    [[1, 0, 0, 0]
+                                           [0, 1, 0, 0]
+                                           [0, 0, 1, 0]
+                                           [0, 0, 0, -1]]
+         
+        9>    Swap Gate           :      [[1, 0, 0, 0]
+                                           [0, 0, 1, 0]
+                                           [0, 1, 0, 0]
+                                           [0, 0, 0, 1]]
+         
+        10>   Toffoli Gate        :      [[1, 0, 0, 0, 0, 0, 0, 0] 
+                                         [0, 1, 0, 0, 0, 0, 0, 0]
+                                         [0, 0, 1, 0, 0, 0, 0, 0]
+                                         [0, 0, 0, 1, 0, 0, 0, 0]
+                                         [0, 0, 0, 0, 1, 0, 0, 0]
+                                         [0, 0, 0, 0, 0, 1, 0, 0]
+                                         [0, 0, 0, 0, 0, 0, 0, 1]
+                                         [0, 0, 0, 0, 0, 0, 1, 0]]
+      </pre>
     </div>
-
   </div>
+
 </div>
 <!-- ********************************************Result and Bloch Sphere************************************** -->
 <div class="second container-fluid shadow mt-1" style=" width: 100%;">

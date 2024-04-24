@@ -47,11 +47,27 @@ function dropLogo(e) {
 
   // Find the adjacent row element
   const adjacentRow = targetCell.closest("tr");
+  console.log("Target Row", adjacentRow);
 
-  // Find the first available empty cell in the adjacent row
-  const nextEmptyCell = Array.from(adjacentRow.children).find(
-    (cell) => cell.childElementCount === 0
-  );
+  // Find the index of the last filled cell in the row
+  let lastFilledCellIndex = -1;
+  Array.from(adjacentRow.children).forEach((cell, index) => {
+    if (cell.childElementCount > 0) {
+      lastFilledCellIndex = index;
+    }
+  });
+  console.log("Last Filled Cell Index", lastFilledCellIndex);
+
+  // Find the next empty cell after the last filled cell
+  let nextEmptyCell = null;
+  for (let i = lastFilledCellIndex + 1; i < adjacentRow.children.length; i++) {
+    const cell = adjacentRow.children[i];
+    if (cell.childElementCount === 0) {
+      nextEmptyCell = cell;
+      break;
+    }
+  }
+  console.log("Next Empty Cell", nextEmptyCell);
 
   // Ensure nextEmptyCell is not null before proceeding
   if (nextEmptyCell) {
