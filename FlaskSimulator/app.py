@@ -8,11 +8,18 @@ app = Flask(__name__)
 def simulator():
     if request.method == 'POST':
         # Perform business logic here based on the form data
+            # Get data from the request body
+            data = request.json  # Assuming JSON data is sent
+    
+    # Your code to process the data and generate a response
+            response_data = {'received_data': data}  # Example response data
+    
+    # Return the response as JSON
       
         # Process the data, perform calculations, etc.
 
         # Redirect to another page after processing
-        return redirect('/result')
+            return redirect('/result')
     else:
         return render_template('simulator.html')
 # Define route for the result page
@@ -44,13 +51,6 @@ def process_circuit(data):
     result_matrix = [[1, 0], [0, 1]]  # Example result matrix
 
     return result_matrix
-
-# Define route for the page with bar graph and Bloch sphere
-@app.route('/visualization')
-def visualization():
-    # Render the template with initial data (optional)
-    initial_data = {'result_matrix': [[0, 0], [0, 0]]}  # Initial data for visualization
-    return render_template('visualization.html', initial_data=initial_data)
 
 # Define other routes as needed
 @app.route('/about')

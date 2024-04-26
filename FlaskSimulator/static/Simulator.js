@@ -368,3 +368,28 @@ function generateAndPrintRowMatrix(row) {
   console.log("Row Matrix:");
   console.log(rowData);
 }
+function postData() {
+  // Example data to send
+  // const dataToSend = { key: "value" };
+
+  fetch("http://localhost:5000/api/v1/matrix/row", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataToSend),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Process the data received from the backend
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+}
