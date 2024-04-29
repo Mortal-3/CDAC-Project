@@ -1,5 +1,5 @@
 """
-URL configuration for Simulator2 project.
+URL configuration for simulator project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+admin.site.site_header = "Quantum Admin"
+admin.site.site_title = "Quantum Circuit Database"
+admin.site.index_title = "Welcome to Quantum Circuit Portal Data"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
