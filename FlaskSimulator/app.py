@@ -7,22 +7,20 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def simulator():
     if request.method == 'POST':
-        # Perform business logic here based on the form data
-            # Get data from the request body
-            data = request.json  # Assuming JSON data is sent
-    
-    # Your code to process the data and generate a response
-            response_data = {'received_data': data}  # Example response data
-    
-    # Return the response as JSON
-      
-        # Process the data, perform calculations, etc.
+        # Get data from the request body
+        data = request.json
 
-        # Redirect to another page after processing
-            return redirect('/result')
+        # Process the received data
+        # For example, you can access matrix data like this:
+        matrix = data.get('matrix.js')
+
+
+        # Perform any necessary processing here...
+
+        # Return a response if needed
+        return jsonify({'message': 'Data received successfully'})
     else:
         return render_template('simulator.html')
-# Define route for the result page
 @app.route('/result')
 def result():
     # Perform any additional processing or data retrieval here if needed

@@ -337,7 +337,9 @@ function createPopupMenu(image, cell) {
 
 // Define the generateAndPrintRowMatrix function
 function generateAndPrintRowMatrix(row) {
-  const rowData = [];
+  const rowData = {
+    rowMatrix: rowMatrix,
+  };
 
   // Iterate over each cell in the row
   const cells = row.querySelectorAll("td");
@@ -367,6 +369,29 @@ function generateAndPrintRowMatrix(row) {
   // Print the generated row matrix to the console
   console.log("Row Matrix:");
   console.log(rowData);
+  // Create an object containing the row matrix data
+
+  // Send a POST request to the backend API
+  fetch("/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(rowData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Handle the response from the backend if needed
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
 }
 function postData() {
   // Example data to send
