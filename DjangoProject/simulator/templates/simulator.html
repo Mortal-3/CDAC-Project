@@ -109,9 +109,10 @@
     <!-- First table -->
     <div class="col-1" style="height: 27rem;">
       <table class=" table1 table  w-100 " id="bits">
-         {% for i in "xxxxx"|rjust:5 %}
+         {% comment %} {% for i in "01234"|rjust:5 %} {% endcomment %}
+         {% for i in number_1 %}
         <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem;">
-        <td class="p-3 align-middle" style="width: 5rem;">q{{ i }}</td>
+        <td class="p-3 align-middle" style="width: 5rem;">q[{{ i }}]</td>
           {% endfor %}
           </tbody>
       </table>
@@ -119,21 +120,19 @@
 
     <!-- Second table -->
     <div class="col-11" style="height: 27rem;">
-      <table class="table2 table " id="dataTable" style="table-layout: fixed;">
-        <tbody>
-      {% for i in "xxxxx"|rjust:5 %}
-<tr class="myTr" id="{{ i }}">
-  {% for j in numbers %}
-  <td class="circuitBox wire" ondrop="dropLogo(event)" ondragover="allowDrop(event)">
-  </td>
-  {% endfor %}
-</tr>
-{% endfor %}
+<table class="table2 table" id="dataTable" style="table-layout: fixed;">
+    <tbody>
+        {% comment %} {% for i in "01234"|rjust:5 %} {% endcomment %}
+        {% for i in number_1 %}
+        <tr class="myTr" id="{{ i }}">
+            {% for j in number_2 %}
+            <td class="circuitBox wire" ondrop="dropLogo(event)" ondragover="allowDrop(event)"/>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-
-          <!-- Add more rows as needed -->
-        </tbody>
-      </table>
     </div>
   </div>
 

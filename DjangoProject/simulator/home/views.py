@@ -3,12 +3,15 @@ from django.shortcuts import render,HttpResponse
 # Create your views here.
 def index(request):
    
-    return render(request,'base.html')
+    return render(request,'simulator.html')
 def simulator(request):
-    numbers = list(range(20))
-
+    context = {
+        'number_1': range(5),
+        'number_2':range(20),
+    }
+  
     # return render(request,'simulator.html',context)
-    return render(request,'simulator.html',{'numbers': numbers})
+    return render(request,'simulator.html',context)
 def about(request):
  
     return render(request,'about.html')

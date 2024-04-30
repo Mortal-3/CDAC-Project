@@ -47,7 +47,6 @@ function dropLogo(e) {
 
   // Find the adjacent row element
   const adjacentRow = targetCell.closest("tr");
-  console.log("Target Row", adjacentRow);
 
   // Find the index of the last filled cell in the row
   let lastFilledCellIndex = -1;
@@ -200,6 +199,7 @@ function dropLogo(e) {
     console.alert("Error: No empty cell found in the adjacent row.");
   }
 }
+let rowMatrix = []; // Define rowMatrix variable
 
 // Function to create a new image element
 function createImageElement(altText) {
@@ -334,12 +334,9 @@ function createPopupMenu(image, cell) {
 
   return popupMenu;
 }
-
 // Define the generateAndPrintRowMatrix function
 function generateAndPrintRowMatrix(row) {
-  const rowData = {
-    rowMatrix: rowMatrix,
-  };
+  const rowData = [];
 
   // Iterate over each cell in the row
   const cells = row.querySelectorAll("td");
@@ -369,7 +366,14 @@ function generateAndPrintRowMatrix(row) {
   // Print the generated row matrix to the console
   console.log("Row Matrix:");
   console.log(rowData);
+
+  // Push rowData to rowMatrix array
+  rowMatrix.push(rowData);
+
   // Create an object containing the row matrix data
+  const postData = {
+    rowMatrix: rowMatrix,
+  };
 
   // Send a POST request to the backend API
   fetch("/", {
@@ -377,7 +381,7 @@ function generateAndPrintRowMatrix(row) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(rowData),
+    body: JSON.stringify(postData),
   })
     .then((response) => {
       if (!response.ok) {
@@ -387,31 +391,6 @@ function generateAndPrintRowMatrix(row) {
     })
     .then((data) => {
       // Handle the response from the backend if needed
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-    });
-}
-function postData() {
-  // Example data to send
-  // const dataToSend = { key: "value" };
-
-  fetch("http://localhost:5000/api/v1/matrix/row", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(dataToSend),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // Process the data received from the backend
       console.log(data);
     })
     .catch((error) => {
