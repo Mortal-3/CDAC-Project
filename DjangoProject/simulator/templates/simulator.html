@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
- <div class="first row flex-grow-1 shadow mb-1"
+<div class="first row flex-grow-1 shadow mb-1"
   style="background-color: #edeff1; height: 47%;    justify-content: space-evenly; width: 100%; flex-wrap: nowrap;">
   <!-- *********************************************CATALOG-FRONTEND*********************************** -->
   <div class="col-2 shadow" style="overflow: auto;">
@@ -109,10 +109,9 @@
     <!-- First table -->
     <div class="col-1" style="height: 27rem;">
       <table class=" table1 table  w-100 " id="bits">
-         {% comment %} {% for i in "01234"|rjust:5 %} {% endcomment %}
-         {% for i in number_1 %}
+        {% for i in "01234"|rjust:5 %}
         <tr class="d-flex align-items-center justify-content-center mb-0" style="height: 3.5rem;">
-        <td class="p-3 align-middle" style="width: 5rem;">q[{{ i }}]</td>
+          <td class="p-3 align-middle" style="width: 5rem;">q[{{ i }}]</td>
           {% endfor %}
           </tbody>
       </table>
@@ -120,30 +119,29 @@
 
     <!-- Second table -->
     <div class="col-11" style="height: 27rem;">
-<table class="table2 table" id="dataTable" style="table-layout: fixed;">
-    <tbody>
-        {% comment %} {% for i in "01234"|rjust:5 %} {% endcomment %}
-        {% for i in number_1 %}
-        <tr class="myTr" id="{{ i }}">
-            {% for j in number_2 %}
-            <td class="circuitBox wire" ondrop="dropLogo(event)" ondragover="allowDrop(event)"/>
+      <table class="table2 table " id="dataTable" style="table-layout: fixed;">
+        <tbody>
+          {% for i in "01234"|rjust:5 %}
+          <tr class="myTr" id="{{ i }}">
+            {% for j in numbers %}
+            <td class="circuitBox wire" ondrop="dropLogo(event)" ondragover="allowDrop(event)">
+            </td>
             {% endfor %}
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+          </tr>
+          {% endfor %}
 
+
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
     </div>
   </div>
-
-
   <!-- *********************************************CIRCUIT CONTROLLER********************************** -->
-  <div class="circuit-controller col-1 d-flex flex-column justify-content-center shadow" style="width: 4rem;
-    margin-left: 19px;
-    height: -webkit-fill-available;">
+  <div class="circuit-controller col-1 d-flex flex-column justify-content-center shadow"
+    style="width: 4rem; margin-left: 19px; height: -webkit-fill-available">
     <!-- ************************* Add ************************** -->
     <div class="mb-4">
-      <button class="btn btn-outline-secondary btn-block " id="addRow" style="border-radius: 50%;" title="Add"
+      <button class="btn btn-outline-secondary btn-block" id="addRow" style="border-radius: 50%" title="Add"
         onclick="addRow()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-center"
           viewBox="0 0 16 16">
@@ -154,7 +152,7 @@
     </div>
     <!-- ************************** Remove *********************** -->
     <div class="mb-4">
-      <button class="btn btn-outline-secondary btn-block " id="removeRow" style="border-radius: 50%;" title="Remove"
+      <button class="btn btn-outline-secondary btn-block" id="removeRow" style="border-radius: 50%" title="Remove"
         onclick=" removeRow()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash"
           viewBox="0 0 16 16">
@@ -165,10 +163,9 @@
     <!-- *************************** Submit ************************* -->
 
     <div class="mb-4">
-      <button class="btn btn-outline-secondary circle-button " id="resetButton" style="border-radius: 50%;"
-        title="Reset">
+      <button class="btn btn-outline-secondary circle-button" id="resetButton" style="border-radius: 50%" title="Reset">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise"
-          viewBox="0 0 16 16" style="font-weight: bold;">
+          viewBox="0 0 16 16" style="font-weight: bold">
           <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
           <path
             d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
@@ -176,8 +173,8 @@
       </button>
     </div>
     <div class="mb-4">
-      <button class="btn btn-outline-secondary btn-block  " id="submit" onclick="handleSubmit();"
-        style="border-radius: 50%;" title="Submit">
+      <button class="btn btn-outline-secondary btn-block" id="submit" onclick="handleSubmit();"
+        style="border-radius: 50%" title="Submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-arrow-return-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
@@ -190,9 +187,7 @@
   <div class="code col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
     <div class="heading text-center bg-body-tertiary p-2 rounded">
       <h4>
-        <u>
-          Gate Matrix
-        </u>
+        <u> Gate Matrix </u>
       </h4>
     </div>
     <div class="gateMatrix shadow overflow-auto">
@@ -241,38 +236,34 @@
       </pre>
     </div>
   </div>
-
-</div> 
+</div>
 <!-- ********************************************Result and Bloch Sphere************************************** -->
- <div class="second container-fluid shadow mt-1" style=" width: 100%;">
-  <div class="container2 d-flex justify-content-center ">
-    <div class="bargraph shadow d-flex flex-column" style="flex: 69%;">
+<div class="second container-fluid shadow mt-1" style="width: 100%">
+  <div class="container2 d-flex justify-content-center">
+    <div class="bargraph shadow d-flex flex-column" style="flex: 69%">
       <div class="bg-body-tertiary p-2 rounded text-center fs-2 fw-bold">
         <u>Probability Chart</u>
       </div>
-      <div class="matrix" style="display: flex; justify-content: space-evenly;">
+      <div class="matrix" style="display: flex; justify-content: space-evenly">
         <!-- Set a fixed height for the canvas element -->
-        <canvas id="myChart" style="width: 58rem;max-width: 59rem;display: block;"></canvas>
+        <canvas id="myChart" style="width: 58rem; max-width: 59rem; display: block"></canvas>
       </div>
     </div>
 
     <!-- *************BlochSphere********* -->
-    <div class="blochSphere shadow d-flex flex-column ml-4" style="flex: 29%;">
+    <div class="blochSphere shadow d-flex flex-column ml-4" style="flex: 29%">
       <div class="bg-body-tertiary p-2 rounded text-center underlined fs-2 graphHeading fw-bold">
-
         <u>BlochSphere</u>
       </div>
       <div class="graph text-center">
-        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto;width: 35rem;">
+        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto; width: 35rem" />
       </div>
     </div>
-
   </div>
-
-</div> 
+</div>
 <!-- Bootstrap JS and dependencies -->
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
- 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 {% endblock body %}
