@@ -1,21 +1,26 @@
 {% extends 'base.html' %} {% block body %}
-<div class="container my-5 shadow" id="about">
+<div class="container my-5 shadow" id="about" style="border-radius:5px ;">
   <h1 class="mb-4">
     <u>About: Technologies Used:</u>
   </h1>
   <p>This is a HPC-Simulator app created with the following technologies:</p>
-  <ol class="list-group list-group-flush" style="list-style: disc">
-    <li class="list-group-item">Html5</li>
-    <li class="list-group-item">CSS</li>
-    <li class="list-group-item">
-      ReactJS - A JavaScript library for building user interfaces.
-    </li>
-    <li class="list-group-item">Jsx</li>
-    <li class="list-group-item">React</li>
-    <li class="list-group-item">Flask Framework</li>
-    <li class="list-group-item">Python</li>
-    <li class="list-group-item">Rest API</li>
-  </ol>
+  {% comment %} <ul class="list-group list-group-flush "> {% endcomment %}
+    <ul class="list-group list-unstyled " style="padding-bottom:1vh ;">
+      <li class="list-group-item">
+        Html5, CSS, BootStrap
+      </li>
+      <li class="list-group-item">
+        Eventhandle - Vanilla JS
+      </li>
+      <li class="list-group-item">
+        Framework - Django
+      </li>
+      <li class="list-group-item">
+        Backend - Python
+      </li>
+      <li class="list-group-item">
+        Architecture - MVT
+      </li>
+    </ul>
 </div>
-
 {% endblock body %}
