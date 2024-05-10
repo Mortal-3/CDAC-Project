@@ -27,6 +27,11 @@ def about(request):
  
     return render(request,'about.html')
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Contact
+from datetime import datetime
+
 def contact(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -37,10 +42,11 @@ def contact(request):
         # Create an instance of the Contact model and save it to the database
         contact = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         contact.save()
-        messages.success(request, "Your details has been sucessfully send...!")  # ignored
-       
+        
+        messages.success(request, "Your details have been successfully sent!")
 
         return render(request, 'contact.html')
+
     else:
         return render(request, 'contact.html')  # Render contact.html for GET requests
 

@@ -51,15 +51,12 @@
     content: "";
     position: absolute;
     left: 50%;
-    top: -15%;
+    top: -7%;
     bottom: 0;
     width: 1px;
-    height: 4.6rem;
-    /* Adjust the width of the line */
+    height: 4.1rem;
     background-color: #d04c27;
-    /* Adjust the color of the line */
     opacity: 50%;
-    /* Ensure the line is behind other content */
     rotate: 90deg;
 }
 

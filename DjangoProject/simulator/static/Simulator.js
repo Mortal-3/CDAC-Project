@@ -48,25 +48,10 @@ function dropLogo(e) {
   // Find the adjacent row element
   const adjacentRow = targetCell.closest("tr");
 
-  // Find the index of the last filled cell in the row
-  let lastFilledCellIndex = -1;
-  Array.from(adjacentRow.children).forEach((cell, index) => {
-    if (cell.childElementCount > 0) {
-      lastFilledCellIndex = index;
-    }
-  });
-  console.log("Last Filled Cell Index", lastFilledCellIndex);
-
-  // Find the next empty cell after the last filled cell
-  let nextEmptyCell = null;
-  for (let i = lastFilledCellIndex + 1; i < adjacentRow.children.length; i++) {
-    const cell = adjacentRow.children[i];
-    if (cell.childElementCount === 0) {
-      nextEmptyCell = cell;
-      break;
-    }
-  }
-  console.log("Next Empty Cell", nextEmptyCell);
+  // Find the first available empty cell in the adjacent row
+  const nextEmptyCell = Array.from(adjacentRow.children).find(
+    (cell) => cell.childElementCount === 0
+  );
 
   // Ensure nextEmptyCell is not null before proceeding
   if (nextEmptyCell) {
@@ -199,7 +184,6 @@ function dropLogo(e) {
     console.alert("Error: No empty cell found in the adjacent row.");
   }
 }
-let rowMatrix = []; // Define rowMatrix variable
 
 // Function to create a new image element
 function createImageElement(altText) {
@@ -334,6 +318,7 @@ function createPopupMenu(image, cell) {
 
   return popupMenu;
 }
+
 // Define the generateAndPrintRowMatrix function
 function generateAndPrintRowMatrix(row) {
   const rowData = [];
@@ -366,34 +351,34 @@ function generateAndPrintRowMatrix(row) {
   // Print the generated row matrix to the console
   console.log("Row Matrix:");
   console.log(rowData);
-
-  // Push rowData to rowMatrix array
-  rowMatrix.push(rowData);
-
-  // Create an object containing the row matrix data
-  const postData = {
-    rowMatrix: rowMatrix,
-  };
-
-  // Send a POST request to the backend API
-  fetch("/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(postData),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // Handle the response from the backend if needed
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-    });
 }
+
+// Push rowData to rowMatrix array
+rowMatrix.push(rowData);
+
+// Create an object containing the row matrix data
+const postData = {
+  rowMatrix: rowMatrix,
+};
+
+// Send a POST request to the backend API
+fetch("/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(postData),
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    // Handle the response from the backend if needed
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error("There was a problem with the fetch operation:", error);
+  });
