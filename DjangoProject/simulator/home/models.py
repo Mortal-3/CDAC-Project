@@ -16,4 +16,3 @@ class Contact(models.Model):
 
   
 
-
