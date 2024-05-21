@@ -96,43 +96,50 @@ function dropLogo(e) {
       rowCount >= 2
     ) {
       // Check if table2 has at least 2 rows
-      if (adjacentRow.id !== "0") {
-        // Check if not first row
-        // Apply gateWire class to the corresponding cell in the previous row
-        const previousRow = adjacentRow.previousElementSibling;
-        if (previousRow) {
-          const correspondingCell = previousRow.querySelector(
-            `td:nth-child(${
-              Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
-            })`
-          );
-          if (correspondingCell && correspondingCell.childElementCount === 0) {
-            const gateWireDiv = document.createElement("div");
-            gateWireDiv.classList.add("gateWire");
-            gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
-            correspondingCell.appendChild(gateWireDiv);
+      const droppedRowIndex = Array.from(
+        adjacentRow.parentElement.children
+      ).indexOf(adjacentRow);
+      if (droppedRowIndex >= 1) {
+        // Allow drop on rows at index 1 or higher
+        if (adjacentRow.id !== "0") {
+          // Apply gateWire class to the corresponding cell in the previous row
+          const previousRow = adjacentRow.previousElementSibling;
+          if (previousRow) {
+            const correspondingCell = previousRow.querySelector(
+              `td:nth-child(${
+                Array.from(adjacentRow.children).indexOf(nextEmptyCell) + 1
+              })`
+            );
+            if (
+              correspondingCell &&
+              correspondingCell.childElementCount === 0
+            ) {
+              const gateWireDiv = document.createElement("div");
+              gateWireDiv.classList.add("gateWire");
+              gateWireDiv.classList.add("vertical-line"); // Add CSS class for vertical line
+              correspondingCell.appendChild(gateWireDiv);
+            }
           }
         }
+
+        // Insert the newImage into the nextEmptyCell
+        nextEmptyCell.appendChild(newImage);
+
+        console.log(newImage.id, "gate inserted into circuit");
+        console.log("2 bit gate Updated soon .....!");
       }
-
-      // Insert the newImage into the nextEmptyCell
-      nextEmptyCell.appendChild(newImage);
-
-      console.log(newImage.id, "gate inserted into circuit");
-      console.log("2 bit gate Updated soon .....!");
     }
 
     // ********************************************* Multi-bit gate *******************.......!!!!!!!!!!!
     else if (newImage.id === "Toffoli" && rowCount >= 3) {
       // Check if table2 has at least 3 rows
-      if (adjacentRow.id !== "0") {
-        // Check if not first row
-        // Check if the index of the dropped image row is at least 3
-        const droppedRowIndex = Array.from(
-          adjacentRow.parentElement.children
-        ).indexOf(adjacentRow);
-        if (droppedRowIndex >= 2) {
-          // Apply gateWire class to the corresponding cell in the previous previous row(current row -2)
+      const droppedRowIndex = Array.from(
+        adjacentRow.parentElement.children
+      ).indexOf(adjacentRow);
+      if (droppedRowIndex >= 2) {
+        // Allow drop on rows at index 2 or higher
+        if (adjacentRow.id !== "0") {
+          // Apply gateWire class to the corresponding cell in the previous previous row (current row - 2)
           const previousPreviousRow =
             adjacentRow.parentElement.children[droppedRowIndex - 2];
           if (previousPreviousRow) {
@@ -169,13 +176,13 @@ function dropLogo(e) {
             }
           }
         }
+
+        // Insert the newImage into the nextEmptyCell
+        nextEmptyCell.appendChild(newImage);
+
+        console.log(newImage.id, "gate inserted into circuit");
+        console.log("3 bit gate Updated soon .....!");
       }
-
-      // Insert the newImage into the nextEmptyCell
-      nextEmptyCell.appendChild(newImage);
-
-      console.log(newImage.id, "gate inserted into circuit");
-      console.log("Multi-bit gate updated soon .....!");
     }
 
     // Clear redo history when a new drop occurs
