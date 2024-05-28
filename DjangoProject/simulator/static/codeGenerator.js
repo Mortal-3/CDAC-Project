@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var permissionSelect = document.getElementById("permission");
   var myCodeDiv = document.getElementById("myCode");
 
-  console.log("myDiv Code Section : ", myCodeDiv);
-  console.log("myDiv Code Section control : ", permissionSelect);
-
   permissionSelect.addEventListener("change", function () {
     if (this.value === "write") {
       myCodeDiv.contentEditable = "true";
@@ -16,6 +13,5 @@ document.addEventListener("DOMContentLoaded", function () {
       myCodeDiv.contentEditable = "false";
       myCodeDiv.style.display = "none"; // Hide the div
     }
-    console.log("SET Data is true ", myCodeDiv);
   });
 });

@@ -103,4 +103,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Start observing the table for changes
   observer.observe(document.getElementById("bits"), config);
+
+  // Add passive event listeners
+  document.getElementById("bits").addEventListener(
+    "touchstart",
+    function (event) {
+      // Your touchstart event handler logic here
+    },
+    { passive: true }
+  );
+
+  document.getElementById("bits").addEventListener(
+    "touchmove",
+    function (event) {
+      // Your touchmove event handler logic here
+    },
+    { passive: true }
+  );
 });

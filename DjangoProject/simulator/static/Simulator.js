@@ -1,6 +1,7 @@
 // Arrays to store the history of dropped images and their corresponding cells
 let dropHistory = [];
 let rowCount = 0; // Initialize rowCount variable
+var rowMatrix = []; // Define rowMatrix to store row data
 
 function allowDrop(event) {
   event.preventDefault();
@@ -22,7 +23,7 @@ function updateRowCount() {
 // Initial call to updateRowCount to set the initial value
 updateRowCount();
 
-// Observer to watch for changes in the table  -This set of code is for barGraph  send number of rows
+// Observer to watch for changes in the table - This set of code is for barGraph  send number of rows
 const observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     // If nodes are added or removed, update the rowCount variable
@@ -38,7 +39,7 @@ const config = { childList: true, subtree: true };
 // Start observing the table for changes
 observer.observe(table2Cells, config);
 
-//************************************************************************ */ Define the dropLogo function outside of the if condition
+// Define the dropLogo function outside of the if condition
 function dropLogo(e) {
   e.preventDefault();
 
@@ -325,67 +326,3 @@ function createPopupMenu(image, cell) {
 
   return popupMenu;
 }
-
-// Define the generateAndPrintRowMatrix function
-function generateAndPrintRowMatrix(row) {
-  const rowData = [];
-
-  // Iterate over each cell in the row
-  const cells = row.querySelectorAll("td");
-  let lastFilledIndex = cells.length - 1; // Initialize the last filled index to the last cell index
-
-  // Iterate over each cell in reverse order to find the last filled index
-  for (let i = cells.length - 1; i >= 0; i--) {
-    const cell = cells[i];
-    const isCellFilled = cell.children.length > 0;
-
-    if (isCellFilled) {
-      // If the cell is filled, update the lastFilledIndex and break the loop
-      lastFilledIndex = i;
-      break;
-    }
-  }
-
-  // Iterate over each cell again, starting from the first cell
-  cells.forEach((cell, index) => {
-    if (index <= lastFilledIndex) {
-      // If the cell index is less than or equal to the last filled index, push its ID (text) to rowData
-      const isCellFilled = cell.children.length > 0;
-      rowData.push(isCellFilled ? cell.firstElementChild.id : null);
-    }
-  });
-
-  // Print the generated row matrix to the console
-  console.log("Row Matrix:");
-  console.log(rowData);
-}
-
-// Push rowData to rowMatrix array
-rowMatrix.push(rowData);
-
-// Create an object containing the row matrix data
-const postData = {
-  rowMatrix: rowMatrix,
-};
-
-// Send a POST request to the backend API
-fetch("/", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(postData),
-})
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    // Handle the response from the backend if needed
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("There was a problem with the fetch operation:", error);
-  });
