@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="first row flex-grow-1 shadow mb-1"
-  style="background-color: #edeff1; height: 47%;    justify-content: space-evenly; width: 100%; flex-wrap: nowrap;">
+  style="background-color: #edeff1; height: 47%;    justify-content: space-evenly; width: 98%; flex-wrap: nowrap;">
   <!-- *********************************************CATALOG-FRONTEND*********************************** -->
   <div class="col-2 shadow" style="overflow: auto;">
     <table class="table mt-2 text-center col-12 col-md-8 col-lg-6 col-xl-4 mx-auto "
@@ -185,55 +185,32 @@
   </div>
   <!-- *********************************************DISPLAY-CODE***************************************** -->
   <div class="code col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
-    <div class="heading text-center bg-body-tertiary p-2 rounded">
-      <h4>
-        <u> Gate Matrix </u>
+    <div class="heading text-center bg-body-tertiary p-2 rounded d-flex align-items-center">
+      <h4 class="mx-auto mb-0">
+        <u>Circuit Code</u>
       </h4>
+      <span>
+        <select name="permission" id="permission" class="ms-auto">
+          <option value="read">Read only</option>
+          <option value="write">Read/Write both</option>
+        </select>
+      </span>
     </div>
+
     <div class="gateMatrix shadow overflow-auto">
-      <pre class="gateMatrixContent">
-        1>    Pauli-X Gate        :    [[0, 1]
-                                       [1, 0]]
-         
-        2>    Pauli-Y Gate        :    [[0, -i]
-                                       [i, 0]]
-         
-        3>    Pauli-Z Gate        :    [[1, 0]
-                                       [0, -1]]
-         
-        4>    Hadamard Gate       :    [[1/sqrt(2), 1/sqrt(2)],
-                                       [1/sqrt(2), -1/sqrt(2)]]
-         
-        5>    S Gate              :    [[1, 0]
-                                       [0, i]]
-         
-        6>    T Gate              :    [[1, 0]
-                                       [0, exp(i*pi/4)]]
-         
-        7>    CNOT (Controlled-NOT) Gate: [[1, 0, 0, 0]
-                                           [0, 1, 0, 0]
-                                           [0, 0, 0, 1]
-                                           [0, 0, 1, 0]]
-         
-        8>    CZ (Controlled-Z) Gate:    [[1, 0, 0, 0]
-                                           [0, 1, 0, 0]
-                                           [0, 0, 1, 0]
-                                           [0, 0, 0, -1]]
-         
-        9>    Swap Gate           :      [[1, 0, 0, 0]
-                                           [0, 0, 1, 0]
-                                           [0, 1, 0, 0]
-                                           [0, 0, 0, 1]]
-         
-        10>   Toffoli Gate        :      [[1, 0, 0, 0, 0, 0, 0, 0] 
-                                         [0, 1, 0, 0, 0, 0, 0, 0]
-                                         [0, 0, 1, 0, 0, 0, 0, 0]
-                                         [0, 0, 0, 1, 0, 0, 0, 0]
-                                         [0, 0, 0, 0, 1, 0, 0, 0]
-                                         [0, 0, 0, 0, 0, 1, 0, 0]
-                                         [0, 0, 0, 0, 0, 0, 0, 1]
-                                         [0, 0, 0, 0, 0, 0, 1, 0]]
+      <div class="gateMatrixContent" id="circuitData">
+        <!-- <pre >
+
+      </pre> -->
+      </div>
+      <div id="myCode" contenteditable="false" style="display: none;">
+        <pre class="gateMatrixContent">
+        import QuantumCircuit as qc
+        {% comment %} qc.h(0)
+        qc.cnot(0,1)
+        qc.draw() {% endcomment %}
       </pre>
+      </div>
     </div>
   </div>
 </div>
@@ -253,10 +230,11 @@
     <!-- *************BlochSphere********* -->
     <div class="blochSphere shadow d-flex flex-column ml-4" style="flex: 29%">
       <div class="bg-body-tertiary p-2 rounded text-center underlined fs-2 graphHeading fw-bold">
-        <u>BlochSphere</u>
+        <u>Code-Circuit </u>
       </div>
       <div class="graph text-center">
-        <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto; width: 35rem" />
+        {% comment %} <img src="./../static/img/BlochF.png" alt="Bloch Sphere" style="height: auto; width: 35rem" />
+        {%endcomment %}
       </div>
     </div>
   </div>
