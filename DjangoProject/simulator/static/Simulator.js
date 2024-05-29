@@ -3,7 +3,9 @@ let dropHistory = [];
 let rowCount = 0; // Initialize rowCount variable
 var rowMatrix = []; // Define rowMatrix to store row data
 
-function allowDrop(event) {}
+function allowDrop(event) {
+  event.preventDefault();
+}
 
 function drag(event) {
   // Store the dragged element's ID from table 1
