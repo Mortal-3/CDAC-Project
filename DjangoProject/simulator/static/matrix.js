@@ -76,7 +76,7 @@ function handleSubmit() {
   // Print the generated matrix string to console for testing
   console.log("Matrix:");
   console.log(matrixString);
-  mycontainer.innerHTML = matrixString;
+  mycontainer.innerText = matrixString;
 
   // Print the number of rows with content
   console.log("Number of rows with content: " + matrix.length);
